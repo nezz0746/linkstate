@@ -1,8 +1,4 @@
-import {
-  SupportedChainsIds,
-  Token,
-  TokenList,
-} from "../../../../packages/common/dist";
+import { SupportedChainsIds, Token, TokenList } from "@cryptoresume/common";
 import { Address, getAddress, zeroAddress } from "viem";
 
 export const getTokenImageURL = (address: Address) => {

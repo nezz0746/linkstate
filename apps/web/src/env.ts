@@ -1,4 +1,3 @@
-import { _SubgraphErrorPolicy_ } from "../../../packages/webkit/src";
 import { base } from "viem/chains";
 
 export const privyAppId = process.env.NEXT_PUBLIC_PRIVY_APP_ID as string;

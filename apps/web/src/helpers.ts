@@ -1,4 +1,4 @@
-import { constants } from "../../../packages/common/dist";
+import { constants } from "@cryptoresume/common";
 import { Address, Chain } from "viem";
 import { base } from "viem/chains";
 

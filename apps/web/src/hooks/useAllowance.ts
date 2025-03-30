@@ -2,7 +2,7 @@ import { Address, erc20Abi, maxUint256 } from "viem";
 import { base } from "viem/chains";
 import { useReadContract, useSimulateContract, useWriteContract } from "wagmi";
 import useWaitForTransactionSuccess from "./useWaitForTransactionSuccess";
-import { Token } from "../../../../packages/common/dist";
+import { Token } from "@cryptoresume/common";
 
 type UseAllowanceProps = {
   token?: Token;

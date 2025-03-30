@@ -1,6 +1,6 @@
 import { useAccount, useBalance, useReadContract } from "wagmi";
 import { erc20Abi, formatEther, formatUnits } from "viem";
-import { Token } from "../../../../packages/common/dist";
+import { Token } from "@cryptoresume/common";
 
 export const useTokenBalance = (token?: Token) => {
   const {

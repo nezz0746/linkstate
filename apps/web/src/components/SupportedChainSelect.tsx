@@ -8,10 +8,7 @@ import {
   SelectTrigger,
 } from "@cryptoresume/ui/components/ui/select";
 import { getChainImageURL } from "~/src/helpers";
-import {
-  constants,
-  SupportedChainsIds,
-} from "../../../../packages/common/dist";
+import { constants, SupportedChainsIds } from "@cryptoresume/common";
 import classNames from "classnames";
 
 type SupportedChainsSelectProps = {

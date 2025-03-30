@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 import { defaultChain } from "../env";
-import { SupportedChainsIds } from "../../../../packages/common/dist";
+import { SupportedChainsIds } from "@cryptoresume/common";
 import { useAccount, useConnect } from "wagmi";
 import { usePlatform } from "../providers/platform";
 import farcasterFrame from "@farcaster/frame-wagmi-connector";

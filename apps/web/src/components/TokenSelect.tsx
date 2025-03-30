@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Token } from "../../../../packages/common/dist";
+import { Token } from "@cryptoresume/common";
 import {
   Select,
   SelectContent,

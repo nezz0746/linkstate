@@ -1,4 +1,4 @@
-import { Token } from "../../../../packages/common/dist";
+import { Token } from "@cryptoresume/common";
 import { Address, formatUnits } from "viem";
 import { base } from "viem/chains";
 import { useBalance } from "wagmi";
