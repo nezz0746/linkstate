@@ -7,7 +7,7 @@ function LoadingState() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 bg-gradient-to-b from-slate-50 to-slate-100 flex items-center justify-center"
+      className="fixed inset-0 flex items-center justify-center"
     >
       <div className="relative flex flex-col items-center gap-6 p-8 rounded-lg">
         <div className="relative">

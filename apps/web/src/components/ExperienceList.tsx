@@ -15,15 +15,15 @@ export function ExperienceList() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       {experiences.map((experience) => (
         <div
           key={experience.id}
-          className="relative rounded-lg border p-4 hover:bg-muted/50"
+          className="relative border p-4 hover:bg-muted/50"
         >
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="font-semibold">{experience.title}</h3>
+              <h3 className="font-bold">{experience.title}</h3>
               <p className="text-sm text-muted-foreground">
                 {experience.companyName}
               </p>

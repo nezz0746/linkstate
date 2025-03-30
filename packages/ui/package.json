@@ -12,6 +12,7 @@
   "devDependencies": {
     "@cryptoresume/eslint-config": "workspace:*",
     "@cryptoresume/typescript-config": "workspace:*",
+    "@types/cobe": "^0.5.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "autoprefixer": "^10.4.19",
@@ -52,11 +53,13 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
+    "cobe": "^0.6.3",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.8.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.395.0",
+    "motion": "^12.6.2",
     "next-themes": "^0.3.0",
     "react-day-picker": "8.10.1",
     "react-hook-form": "^7.52.2",
@@ -75,7 +78,8 @@
     "./lib/*": "./src/lib/*.ts",
     "./components/*": [
       "./src/components/*.tsx",
-      "./src/components/*.ts"
+      "./src/components/*.ts",
+      "./src/magicui/*.tsx"
     ]
   }
 }

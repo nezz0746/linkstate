@@ -1,13 +1,13 @@
 import "@cryptoresume/ui/globals.css";
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import RootProvider from "../providers/root";
 import { Toaster } from "@cryptoresume/ui/components/ui/toaster";
 import PlatformProvider from "../providers/platform";
 import { Analytics } from "@vercel/analytics/react";
 import AppLayout from "../components/AppLayout";
-
-const montserrat = Montserrat({ subsets: ["latin"] });
+import { inter, cormorant } from "../fonts";
+import { Globe } from "@cryptoresume/ui/components/magicui/globe";
+import Background from "../components/Background";
 
 const appUrl = "https://linkstate.vercel.app";
 
@@ -45,12 +45,14 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+      <body className={inter.className}>
         <main className="min-h-screen">
           <PlatformProvider>
             <RootProvider>
-              <AppLayout>{children}</AppLayout>
+              <Background>
+                <AppLayout>{children}</AppLayout>
+              </Background>
               <Toaster />
             </RootProvider>
           </PlatformProvider>

@@ -13,6 +13,7 @@
     "@cryptoresume/contracts": "workspace:*",
     "@cryptoresume/database": "workspace:*",
     "@cryptoresume/ui": "workspace:*",
+    "@ethereum-attestation-service/eas-sdk": "^2.7.0",
     "@farcaster/frame-sdk": "^0.0.31",
     "@farcaster/frame-wagmi-connector": "^0.0.16",
     "@hookform/resolvers": "^3.9.0",
