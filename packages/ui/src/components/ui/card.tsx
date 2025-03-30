@@ -21,7 +21,10 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex  flex-col space-y-1.5 p-4 md:p-6", className)}
+    className={cn(
+      "flex flex-col justify-center md:justify-start text-center md:text-left space-y-1.5 p-2 md:p-6",
+      className,
+    )}
     {...props}
   />
 ));
@@ -34,7 +37,7 @@ const CardTitle = React.forwardRef<
   <h3
     ref={ref}
     className={twMerge(
-      "text-lg md:text-2xl font-semibold leading-none tracking-tight font-serif",
+      "text-2xl font-semibold leading-none tracking-tight font-serif",
       className,
     )}
     {...props}
@@ -58,7 +61,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6  pt-0", className)} {...props} />
+  <div ref={ref} className={cn("p-2 md:p-6  pt-0", className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 

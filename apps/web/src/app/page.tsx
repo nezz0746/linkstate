@@ -105,7 +105,7 @@ export default function ProfilePage() {
                   </div>
                 </div>
               </div>
-              <div className="p-4 flex flex-col gap-4">
+              <div className="p-2 md:p-4 flex flex-col gap-4">
                 <div>
                   <h1 className="text-4xl font-extrabold">{displayName}</h1>
                   {description && <p className="text-base">{description}</p>}
@@ -115,22 +115,22 @@ export default function ProfilePage() {
                 <Divider />
                 <div className="grid gap-4">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center justify-between">
+                    <div className="text-center md:text-left">
                       <h3 className="text-2xl font-semibold font-serif">
                         Experience
                       </h3>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setShowExperienceForm(true)}
-                      >
-                        Add Experience
-                      </Button>
                     </div>
                     <ExperienceList />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShowExperienceForm(true)}
+                    >
+                      Add Experience
+                    </Button>
                   </div>
                   <Divider />
-                  <div>
+                  <div className="text-center md:text-left">
                     <h3 className="text-2xl font-semibold font-serif">
                       Skills
                     </h3>

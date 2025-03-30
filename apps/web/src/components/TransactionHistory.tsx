@@ -1,6 +1,6 @@
 import { Badge } from "@cryptoresume/ui/components/ui/badge";
 import { Button } from "@cryptoresume/ui/components/ui/button";
-import { ExternalLink } from "lucide-react";
+import { ArrowRightLeftIcon, ExternalLink } from "lucide-react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAccount } from "wagmi";
 import {
@@ -8,7 +8,6 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@cryptoresume/ui/components/ui/avatar";
-import { Card } from "@cryptoresume/ui/components/ui/card";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { InterfaceTx } from "../types";
@@ -51,13 +50,10 @@ export function TransactionHistory() {
   const transactions = data?.pages.flatMap((page) => page.txs);
 
   return (
-    <div className="space-y-4">
-      <div className="space-y-3">
+    <div className="space-y-0 md:space-y-4">
+      <div className="space-y-1 md:space-y-3">
         {transactions?.map((tx) => (
-          <div
-            key={tx.id}
-            className="flex flex-col gap-3 rounded-lg border p-4"
-          >
+          <div key={tx.id} className="flex flex-col gap-2 border p-2 md:p-4">
             {/* User and Time */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -77,12 +73,26 @@ export function TransactionHistory() {
                   </div>
                 </div>
               </div>
-              <Badge
-                variant={tx.method.name === "Swapped" ? "default" : "secondary"}
-                className="text-xs"
-              >
-                {tx.method.name}
-              </Badge>
+              <div className="flex flex-row items-center gap-2">
+                <Badge
+                  variant={
+                    tx.method.name === "Swapped" ? "default" : "secondary"
+                  }
+                  className="text-xs"
+                >
+                  {tx.method.name}
+                </Badge>
+                <div className="flex justify-end">
+                  <a
+                    href={`${tx.chain.explorer}/tx/${tx.hash}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Transaction Details */}
@@ -92,40 +102,38 @@ export function TransactionHistory() {
             </p>
 
             {/* Tokens */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-row items-center gap-1">
               {tx.tokens.map((token, index) => (
-                <Card key={index} className="flex items-center gap-3 p-3">
-                  <div className="relative h-10 w-10 overflow-hidden rounded-lg">
-                    <img
-                      src={token.image}
-                      alt={token.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">
-                      {token.amount[0]} {token.symbol}
-                    </p>
-                    {token.amountUsd[0] && (
-                      <p className="text-xs text-muted-foreground">
-                        ${token.amountUsd[0]}
+                <>
+                  <div
+                    key={index}
+                    className="flex items-center flex-grow gap-3 p-1"
+                  >
+                    <div className="relative h-6 w-6 overflow-hidden rounded-lg">
+                      <img
+                        src={token.image}
+                        alt={token.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">
+                        {token.amount[0]} {token.symbol}
                       </p>
-                    )}
+                      {token.amountUsd[0] && (
+                        <p className="text-xs text-muted-foreground">
+                          ${token.amountUsd[0]}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </Card>
+                  {index === 0 && tx.tokens.length > 1 && (
+                    <div className="h-full flex items-center justify-center">
+                      <ArrowRightLeftIcon className="h-4 w-4 stroke-black" />
+                    </div>
+                  )}
+                </>
               ))}
-            </div>
-
-            {/* Action */}
-            <div className="flex justify-end">
-              <a
-                href={`${tx.chain.explorer}/tx/${tx.hash}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent hover:text-accent-foreground"
-              >
-                <ExternalLink className="h-4 w-4" />
-              </a>
             </div>
           </div>
         ))}
