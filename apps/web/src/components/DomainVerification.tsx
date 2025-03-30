@@ -11,8 +11,8 @@ import useDomainNames from "../hooks/useDomainNames";
 import { ensUnlinkMessage, ensVerificationMessage } from "../constants";
 import { useAccount, useSignMessage } from "wagmi";
 import { useMutation } from "@tanstack/react-query";
-import { usePrivy, useUser } from "@privy-io/react-auth";
-import { useEnsVerification } from "../app/page";
+import { useUser } from "@privy-io/react-auth";
+import { useEnsVerification } from "../hooks/useEnsVerification";
 
 export function DomainVerification() {
   const { ensVerifiedInPast30Days } = useEnsVerification();

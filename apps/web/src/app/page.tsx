@@ -25,21 +25,9 @@ import WalletCard from "../components/WalletCard";
 import { useAccount } from "wagmi";
 import { useLinkAccount, usePrivy, useUser } from "@privy-io/react-auth";
 import { truncateAddress } from "../helpers";
-import { CustomMetadata } from "../types";
 import { DomainVerification } from "../components/DomainVerification";
 import { FarcasterIcon } from "../components/Icons";
-
-export const useEnsVerification = () => {
-  const { user } = useUser();
-  const customMetadata = user?.customMetadata as CustomMetadata;
-
-  const ensVerifiedInPast30Days =
-    customMetadata?.ensVerifiedAt &&
-    new Date(customMetadata.ensVerifiedAt) >
-      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-
-  return { ensVerifiedInPast30Days, customMetadata };
-};
+import { useEnsVerification } from "../hooks/useEnsVerification";
 
 export default function ProfilePage() {
   const { address } = useAccount();
