@@ -2,7 +2,10 @@ import {
   QueryClient,
   defaultShouldDehydrateQuery,
   isServer,
+  UseQueryOptions,
 } from "@tanstack/react-query";
+import { request } from "graphql-request";
+import { gql } from "graphql-request";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -37,3 +40,42 @@ export function getQueryClient() {
     return browserQueryClient;
   }
 }
+
+type Domain = {
+  name: string;
+  registration: {
+    expiryDate: string;
+  } | null;
+};
+
+type DomainsResponse = {
+  domains: Domain[];
+};
+
+export const getAddressDomainsQuery = (
+  address?: `0x${string}`,
+): UseQueryOptions<DomainsResponse, Error, DomainsResponse> => {
+  return {
+    queryKey: ["domainNames", address],
+    queryFn: async () => {
+      if (!address) return { domains: [] };
+      return request({
+        url: "https://api.thegraph.com/subgraphs/name/ensdomains/ens",
+        document: gql`
+          query getDomainsForAccount($owner: String!) {
+            domains(where: { owner: $owner }) {
+              name
+              registration {
+                expiryDate
+              }
+            }
+          }
+        `,
+        variables: {
+          owner: address.toLowerCase(),
+        },
+      });
+    },
+    enabled: !!address,
+  };
+};

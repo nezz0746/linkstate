@@ -58,3 +58,17 @@ export type InterfaceTx = {
   gallery: any[];
   copies: any[];
 };
+
+export type CustomMetadata = {
+  ens?: string;
+  ensVerifiedAt?: string;
+};
+
+export type DomainsReturnType = {
+  domains: {
+    name: string;
+    registration: {
+      expiryDate: string;
+    } | null;
+  }[];
+};

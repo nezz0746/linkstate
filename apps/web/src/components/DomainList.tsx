@@ -3,10 +3,15 @@ import useDomainNames from "../hooks/useDomainNames";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
+import DomainSkeleton from "./DomainSkeleton";
 dayjs.extend(relativeTime);
 
 export function DomainList() {
-  const { domains } = useDomainNames();
+  const { domains, isLoading, error } = useDomainNames();
+
+  if (isLoading) return <DomainSkeleton />;
+
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="space-y-4">

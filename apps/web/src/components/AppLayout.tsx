@@ -13,13 +13,15 @@ import {
 import { WalletConnect } from "~/src/components/WalletConnect";
 import Image from "next/image";
 import { useAccount } from "wagmi";
+import { Loader2 } from "lucide-react";
+import { FarcasterIcon } from "./Icons";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { ready, authenticated } = usePrivy();
   const { isConnected } = useAccount();
 
   if (!ready) {
-    return <div>Loading...</div>;
+    return <LoadingState />;
   }
 
   if (!authenticated || !isConnected) {
@@ -65,25 +67,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
                   Google
                 </Button>
                 <Button disabled variant="outline" className="bg-white">
-                  <svg
-                    className="mr-2 h-4 w-4"
-                    fill="currentColor"
-                    viewBox="0 0 1000 1000"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M257.778 155.556H742.222V844.445H671.111V528.889H670.414C662.554 441.677 589.258 373.333 500 373.333C410.742 373.333 337.446 441.677 329.586 528.889H328.889V844.445H257.778V155.556Z"
-                      fill="#855DCD"
-                    />
-                    <path
-                      d="M128.889 253.333L157.778 351.111H182.222V746.667C169.949 746.667 160 756.616 160 768.889V795.556H155.556C143.283 795.556 133.333 805.505 133.333 817.778V844.445H382.222V817.778C382.222 805.505 372.273 795.556 360 795.556H355.556V768.889C355.556 756.616 345.606 746.667 333.333 746.667H306.667V253.333H128.889Z"
-                      fill="#855DCD"
-                    />
-                    <path
-                      d="M675.556 746.667C663.283 746.667 653.333 756.616 653.333 768.889V795.556H648.889C636.616 795.556 626.667 805.505 626.667 817.778V844.445H875.556V817.778C875.556 805.505 865.606 795.556 853.333 795.556H848.889V768.889C848.889 756.616 838.94 746.667 826.667 746.667V351.111H851.111L880 253.333H702.222V746.667H675.556Z"
-                      fill="#855DCD"
-                    />
-                  </svg>
+                  <FarcasterIcon className="mr-2 h-4 w-4" />
                   Farcaster
                 </Button>
               </div>
@@ -126,5 +110,28 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
 
   return <div>{children}</div>;
 };
+
+function LoadingState() {
+  return (
+    <div className="fixed inset-0 bg-gradient-to-b from-slate-50 to-slate-100 flex items-center justify-center">
+      <div className="relative flex flex-col items-center gap-6 p-8 rounded-lg">
+        <div className="relative">
+          {/* Outer pulsing ring */}
+          <div className="absolute inset-0 rounded-full bg-slate-200 animate-ping opacity-75" />
+          {/* Inner spinning loader */}
+          <div className="relative bg-white rounded-full p-4">
+            <Loader2 className="h-8 w-8 animate-spin text-slate-600" />
+          </div>
+        </div>
+        <div className="space-y-1 text-center">
+          <p className="text-sm font-medium text-slate-900">
+            Loading your profile
+          </p>
+          <p className="text-xs text-slate-500">Please wait a moment...</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default AppLayout;

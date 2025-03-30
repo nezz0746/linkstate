@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@cryptoresume/ui/components/ui/badge";
 import { Button } from "@cryptoresume/ui/components/ui/button";
@@ -18,14 +17,41 @@ import {
   TabsList,
   TabsTrigger,
 } from "@cryptoresume/ui/components/ui/tabs";
-import { Check, MessageSquare, Share2, User, Wallet } from "lucide-react";
+import { Check, MessageSquare, Share2 } from "lucide-react";
 import { NFTGallery } from "~/src/components/NftGallery";
 import { TransactionHistory } from "~/src/components/TransactionHistory";
 import { DomainList } from "~/src/components/DomainList";
 import WalletCard from "../components/WalletCard";
+import { useAccount } from "wagmi";
+import { useLinkAccount, usePrivy, useUser } from "@privy-io/react-auth";
+import { truncateAddress } from "../helpers";
+import { CustomMetadata } from "../types";
+import { DomainVerification } from "../components/DomainVerification";
+import { FarcasterIcon } from "../components/Icons";
+
+export const useEnsVerification = () => {
+  const { user } = useUser();
+  const customMetadata = user?.customMetadata as CustomMetadata;
+
+  const ensVerifiedInPast30Days =
+    customMetadata?.ensVerifiedAt &&
+    new Date(customMetadata.ensVerifiedAt) >
+      new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+
+  return { ensVerifiedInPast30Days, customMetadata };
+};
 
 export default function ProfilePage() {
+  const { address } = useAccount();
   const [copied, setCopied] = useState(false);
+  const { user, refreshUser } = useUser();
+  const { unlinkFarcaster } = usePrivy();
+  const { linkFarcaster } = useLinkAccount({
+    onSuccess: () => {
+      refreshUser();
+    },
+  });
+  const { ensVerifiedInPast30Days, customMetadata } = useEnsVerification();
 
   const copyProfileLink = () => {
     navigator.clipboard.writeText(
@@ -35,66 +61,29 @@ export default function ProfilePage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const displayName = user?.farcaster?.displayName || truncateAddress(address);
+  const pfpUrl = user?.farcaster?.pfp;
+  const description = user?.farcaster?.bio;
+
   return (
     <div className="min-h-screen bg-slate-50">
-      <header className="bg-white border-b sticky top-0 z-10">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.png" alt="logo" width={100} height={100} />
-          </Link>
-          <nav className="hidden md:flex gap-6">
-            <Link
-              href="/network"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              Network
-            </Link>
-            <Link
-              href="/jobs"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              Jobs
-            </Link>
-            <Link
-              href="/messaging"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              Messaging
-            </Link>
-            <Link
-              href="/notifications"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              Notifications
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <User className="h-5 w-5" />
-              <span className="sr-only">Profile</span>
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <Wallet className="h-5 w-5" />
-              <span className="sr-only">Wallet</span>
-            </Button>
-          </div>
-        </div>
-      </header>
-      <main className="container px-4 py-6 md:px-6 md:py-12">
-        <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
+      <main className="container px-4 py-6">
+        <div className="grid gap-2 lg:grid-cols-3 lg:gap-6">
           <div className="space-y-6 lg:col-span-2">
             <Card className="overflow-hidden">
               <div className="h-40 bg-gradient-to-r from-blue-500 to-purple-600" />
               <div className="relative px-6">
-                <div className="absolute -top-12 flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-white">
-                  <Image
-                    src="/placeholder.svg?height=96&width=96"
-                    alt="Profile"
-                    width={96}
-                    height={96}
-                    className="rounded-full"
-                  />
-                </div>
+                {pfpUrl && (
+                  <div className="absolute -top-12 flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-white">
+                    <Image
+                      src={pfpUrl}
+                      alt="Profile"
+                      width={200}
+                      height={200}
+                      className="rounded-full"
+                    />
+                  </div>
+                )}
                 <div className="flex justify-end pt-4">
                   <div className="flex gap-2">
                     <Button
@@ -118,29 +107,95 @@ export default function ProfilePage() {
               </div>
               <CardHeader className="pt-4">
                 <div className="flex items-center gap-2">
-                  <CardTitle className="text-2xl">Vitalik Buterin</CardTitle>
-                  <Badge
-                    variant="outline"
-                    className="flex items-center gap-1 border-green-500 text-green-600"
-                  >
-                    <Check className="h-3 w-3" />
-                    ENS Verified
-                  </Badge>
+                  <CardTitle className="text-2xl">{displayName}</CardTitle>
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <span>vitalik.eth</span>
-                  <span>•</span>
-                  <span className="flex items-center">
-                    <span className="inline-block h-2 w-2 rounded-full bg-green-500 mr-1"></span>
-                    Online
-                  </span>
-                </div>
-                <CardDescription className="text-base">
-                  Co-founder of Ethereum. Working on crypto research,
-                  decentralized governance, and digital identity solutions.
-                </CardDescription>
+                {description && (
+                  <CardDescription className="text-base">
+                    {description}
+                  </CardDescription>
+                )}
               </CardHeader>
               <CardContent>
+                <Card className="mb-6 p-0 border-none flex flex-col gap-4">
+                  <CardHeader className="p-0">
+                    <CardTitle>Profiles</CardTitle>
+                    <CardDescription>
+                      Verify your web3 profiles to enhance your credibility
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <Card>
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center">
+                                <Image
+                                  src="/ens.png"
+                                  alt="ENS"
+                                  width={20}
+                                  height={20}
+                                />
+                              </div>
+                              <div>
+                                <h4 className="font-medium">ENS</h4>
+                                <p className="text-xs text-muted-foreground">
+                                  Ethereum Name Service
+                                </p>
+                              </div>
+                            </div>
+                            {ensVerifiedInPast30Days && (
+                              <Badge
+                                variant="outline"
+                                className="flex items-center gap-1 border-green-500 text-green-600"
+                              >
+                                <Check className="h-3 w-3" />
+                                {customMetadata?.ens}
+                              </Badge>
+                            )}
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <DomainVerification />
+                        </CardContent>
+                      </Card>
+
+                      <Card>
+                        <CardHeader className="pb-3">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <div className="h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center">
+                                <FarcasterIcon className="h-5 w-5" />
+                              </div>
+                              <div>
+                                <h4 className="font-medium">Farcaster</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <Button
+                            variant="outline"
+                            className="w-full"
+                            onClick={() => {
+                              if (user?.farcaster) {
+                                if (user?.farcaster?.fid) {
+                                  unlinkFarcaster(user?.farcaster?.fid);
+                                }
+                              } else {
+                                linkFarcaster();
+                              }
+                            }}
+                          >
+                            {user?.farcaster
+                              ? "Unlink Farcaster"
+                              : "Link Farcaster"}
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CardContent>
+                </Card>
                 <div className="grid gap-4">
                   <div>
                     <h3 className="text-lg font-semibold">Experience</h3>
