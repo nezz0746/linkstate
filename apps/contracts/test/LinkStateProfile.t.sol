@@ -126,13 +126,19 @@ contract LinkStateProfileTest is Test {
     string memory message = "Hello Alice!";
 
     uint256 aliceBalanceBefore = alice.balance;
+    uint256 bobBalanceBefore = bob.balance;
 
     vm.prank(bob);
     vm.expectEmit(true, true, false, true);
     emit MessageSent(bob, 1, message);
     profile.sendMessage{value: payment}(1, message);
 
-    assertEq(alice.balance, aliceBalanceBefore + payment);
+    // Calculate exact amounts
+    uint256 protocolFee = (payment * profile.PROTOCOL_FEE_BPS()) / 10000;
+    uint256 recipientPayment = payment - protocolFee;
+
+    assertEq(alice.balance, aliceBalanceBefore + recipientPayment);
+    assertEq(bob.balance, bobBalanceBefore - payment);
   }
 
   function test_SendMessage_InsufficientPayment() public {
@@ -150,7 +156,9 @@ contract LinkStateProfileTest is Test {
 
   function test_SendMessage_NonexistentProfile() public {
     vm.prank(bob);
-    vm.expectRevert("ERC721: invalid token ID");
+    vm.expectRevert(
+      abi.encodeWithSignature("ERC721NonexistentToken(uint256)", 1)
+    );
     profile.sendMessage{value: 0.0001 ether}(1, "Hello!");
   }
 
@@ -209,7 +217,9 @@ contract LinkStateProfileTest is Test {
 
   function test_WithdrawFees_OnlyOwner() public {
     vm.prank(alice);
-    vm.expectRevert("Ownable: caller is not the owner");
+    vm.expectRevert(
+      abi.encodeWithSignature("OwnableUnauthorizedAccount(address)", alice)
+    );
     profile.withdrawFees();
   }
 

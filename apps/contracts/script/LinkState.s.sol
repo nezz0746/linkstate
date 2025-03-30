@@ -13,7 +13,7 @@ contract LinkStateScript is BaseScript {
           address(new LinkStateProfile()),
           abi.encodeCall(
             LinkStateProfile.initialize,
-            ("https://api.linkstate.xyz/metadata/")
+            ("https://linkstate.vercel.app/metadata/profile/")
           )
         )
       )

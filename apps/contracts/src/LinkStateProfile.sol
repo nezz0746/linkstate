@@ -51,12 +51,21 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
     emit ProfileCreated(totalSupply, to);
   }
 
-  // Make profiles non-transferable
-  function _transfer(
+  // Make profiles non-transferable by overriding the public transfer functions
+  function transferFrom(
     address from,
     address to,
     uint256 tokenId
-  ) internal virtual override {
+  ) public virtual override {
+    revert("LinkStateProfile: Profiles are non-transferable");
+  }
+
+  function safeTransferFrom(
+    address from,
+    address to,
+    uint256 tokenId,
+    bytes memory data
+  ) public virtual override {
     revert("LinkStateProfile: Profiles are non-transferable");
   }
 
@@ -121,5 +130,9 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
     require(success, "LinkStateProfile: Fee withdrawal failed");
 
     emit FeesWithdrawn(amount);
+  }
+
+  function _baseURI() internal view virtual override returns (string memory) {
+    return baseURI;
   }
 }
