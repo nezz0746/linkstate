@@ -5,22 +5,22 @@ import RootProvider from "../providers/root";
 import { Toaster } from "@cryptoresume/ui/components/ui/toaster";
 import PlatformProvider from "../providers/platform";
 import { Analytics } from "@vercel/analytics/react";
+import AppLayout from "../components/AppLayout";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
-const appUrl = "https://warptext.fun";
+const appUrl = "https://linkstate.vercel.app";
 
 const frame = {
   version: "next",
-  // Has to be the right aspect ratio
-  imageUrl: `${appUrl}/preview.jpeg`,
+  imageUrl: `${appUrl}/preview.png`,
   button: {
-    title: "Send Tokens",
+    title: "Open Linkstate",
     action: {
       type: "launch_frame",
-      name: "Warptext",
+      name: "Linkstate",
       url: appUrl,
-      splashImageUrl: `${appUrl}/icon-trans.png`,
+      splashImageUrl: `${appUrl}/icon.png`,
       splashBackgroundColor: "#ffffff",
     },
   },
@@ -28,10 +28,10 @@ const frame = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Warptext",
+    title: "Linkstate",
     openGraph: {
-      title: "Warptext",
-      description: "Warptext - Frame",
+      title: "Linkstate",
+      description: "Linkstate - Frame",
     },
     other: {
       "fc:frame": JSON.stringify(frame),
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <main className="min-h-screen">
           <PlatformProvider>
             <RootProvider>
-              {children}
+              <AppLayout>{children}</AppLayout>
               <Toaster />
             </RootProvider>
           </PlatformProvider>

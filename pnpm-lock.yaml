@@ -69,8 +69,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(next@14.2.6(@babel/core@7.26.9)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       alchemy-sdk:
-        specifier: ^3.5.3
-        version: 3.5.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        specifier: ^3.5.6
+        version: 3.5.6(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       canvas-confetti:
         specifier: ^1.9.3
         version: 1.9.3
@@ -86,6 +86,9 @@ importers:
       framer-motion:
         specifier: ^11.8.0
         version: 11.18.2(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      graphql:
+        specifier: ^16.8.1
+        version: 16.10.0
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(encoding@0.1.13)(graphql@16.10.0)
@@ -4393,8 +4396,8 @@ packages:
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
 
-  alchemy-sdk@3.5.4:
-    resolution: {integrity: sha512-Sa9JQGE5C8FdRBF/3bBq6sgrj0JKFxrt34kjekQ+iRUsU+X/wbCKxH0K85YKQhQKBnRE2oGOwOUoFcVHwsIVaA==}
+  alchemy-sdk@3.5.6:
+    resolution: {integrity: sha512-XrrkidbSjeaVp2z5xfW8tVxfTdbdjntpgKAjxnlYZ8N7yudnfNeK9ytHOw4PKtn/dMpwDw/DsgBU92LsuqDwug==}
 
   anser@1.4.10:
     resolution: {integrity: sha512-hCv9AqTQ8ycjpSd3upOJd7vFwW1JaoYQ7tpham03GJ1ca8/65rqn0RpaWpItOAd6ylW9wAw6luXYPJIyPFVOww==}
@@ -15689,7 +15692,7 @@ snapshots:
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
-  alchemy-sdk@3.5.4(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+  alchemy-sdk@3.5.6(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     dependencies:
       '@ethersproject/abi': 5.8.0
       '@ethersproject/abstract-provider': 5.8.0

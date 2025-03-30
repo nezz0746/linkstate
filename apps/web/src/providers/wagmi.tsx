@@ -35,19 +35,19 @@ type WagmiAppProviderProps = {
   isFrame: boolean;
 };
 
+const wagmiConfig = createConfigWagmi({
+  chains: [base],
+  transports: {
+    [base.id]: http(baseRPCUrl),
+  },
+  connectors: [farcasterFrame()],
+});
+
 export const WagmiAppProvider = ({
   children,
   isFrame,
 }: WagmiAppProviderProps) => {
   if (isFrame) {
-    const wagmiConfig = createConfigWagmi({
-      chains: [base],
-      transports: {
-        [base.id]: http(baseRPCUrl),
-      },
-      connectors: [farcasterFrame()],
-    });
-
     return <WagmiProvider config={wagmiConfig}>{children}</WagmiProvider>;
   }
 
