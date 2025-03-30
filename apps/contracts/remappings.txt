@@ -6,5 +6,4 @@ currency/=lib/peanut-contracts/lib/currency/contracts/
 ds-test/=lib/peanut-contracts/lib/forge-std/lib/ds-test/src/
 erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/
 halmos-cheatcodes/=lib/openzeppelin-contracts/lib/halmos-cheatcodes/src/
-openzeppelin-contracts/=lib/openzeppelin-contracts/
-openzeppelin/=lib/peanut-contracts/lib/openzeppelin-contracts/contracts/
+@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
