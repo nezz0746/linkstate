@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-contract CryptoResume {
-  string public name;
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-  constructor() {
-    name = "Crypto Resume";
-  }
-
-  function getName() public view returns (string memory) {
-    return name;
-  }
+contract CryptoResume is ERC721, Ownable {
+  constructor() ERC721("Crypto Resume", "CR") Ownable(msg.sender) {}
 }
