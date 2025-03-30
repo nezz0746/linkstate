@@ -1,0 +1,18 @@
+{
+  "name": "@cryptoresume/contracts",
+  "version": "0.0.0",
+  "description": "Contracts for the repo",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "codegen": "wagmi generate"
+  },
+  "dependencies": {
+    "@wagmi/cli": "2.1.15",
+    "viem": "2.20.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4"
+  }
+}

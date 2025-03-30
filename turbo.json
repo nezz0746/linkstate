@@ -1,0 +1,30 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["prepare"],
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
+      "outputs": ["dist/**",".next/**", "!.next/cache/**"]
+    },
+    "prepare": {
+      "dependsOn": ["^prepare:common"],
+      "cache": false,
+      "env": ["STAGE"]
+    },
+    "prepare:common": {
+      "cache": false,
+      "env": ["STAGE"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "codegen": {
+      "dependsOn":  ["^build"]
+    }
+  }
+}

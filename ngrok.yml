@@ -1,0 +1,7 @@
+authtoken: 2pfY3z7b3uekqYD4077oEzK3v1p_7gwk8aYjMyUr1u4amC26Z
+version: 2
+tunnels:
+  web:
+    addr: 3000
+    proto: http
+    hostname: starter-intense-guppy.ngrok-free.app

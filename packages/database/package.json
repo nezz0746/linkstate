@@ -1,0 +1,23 @@
+{
+  "name": "@cryptoresume/database",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "db:pull": "drizzle-kit pull",
+    "db:generate": "npx drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@cryptoresume/common": "workspace:*",
+    "drizzle-orm": "^0.40.0",
+    "postgres": "^3.4.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.30.5",
+    "typescript": "^5.7.3",
+    "dotenv": "^16.4.1",
+    "@types/node": "^20.11.19"
+  }
+}

@@ -1,0 +1,185 @@
+query depositTotals($id: ID!, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  depositTotals(id: $id, block: $block, subgraphError: $subgraphError) {
+    id
+    tokenAddress
+    name
+    symbol
+    decimals
+    totalDeposited
+    totalDeposists
+    totalClaimed
+    chainId
+  }
+}query depositTotals_collection($skip: Int, $first: Int, $orderBy: DepositTotals_orderBy, $orderDirection: OrderDirection, $where: DepositTotals_filter, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  depositTotals_collection(
+    skip: $skip
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    where: $where
+    block: $block
+    subgraphError: $subgraphError
+  ) {
+    id
+    tokenAddress
+    name
+    symbol
+    decimals
+    totalDeposited
+    totalDeposists
+    totalClaimed
+    chainId
+  }
+}query deposit($id: ID!, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  deposit(id: $id, block: $block, subgraphError: $subgraphError) {
+    id
+    amount
+    tokenAddress
+    tokenSymbol
+    tokenDecimals
+    tokenName
+    tokenTotals {
+      id
+      tokenAddress
+      name
+      symbol
+      decimals
+      totalDeposited
+      totalDeposists
+      totalClaimed
+      chainId
+    }
+    contractType
+    claimed
+    claimedAt
+    requiresMFA
+    timestamp
+    tokenId
+    senderAddress
+    recipient
+    reclaimableAfter
+    chainId
+  }
+}query deposits($skip: Int, $first: Int, $orderBy: Deposit_orderBy, $orderDirection: OrderDirection, $where: Deposit_filter, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  deposits(
+    skip: $skip
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    where: $where
+    block: $block
+    subgraphError: $subgraphError
+  ) {
+    id
+    amount
+    tokenAddress
+    tokenSymbol
+    tokenDecimals
+    tokenName
+    tokenTotals {
+      id
+      tokenAddress
+      name
+      symbol
+      decimals
+      totalDeposited
+      totalDeposists
+      totalClaimed
+      chainId
+    }
+    contractType
+    claimed
+    claimedAt
+    requiresMFA
+    timestamp
+    tokenId
+    senderAddress
+    recipient
+    reclaimableAfter
+    chainId
+  }
+}query depositEvent($id: ID!, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  depositEvent(id: $id, block: $block, subgraphError: $subgraphError) {
+    id
+    _index
+    _contractType
+    _amount
+    _senderAddress
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}query depositEvents($skip: Int, $first: Int, $orderBy: DepositEvent_orderBy, $orderDirection: OrderDirection, $where: DepositEvent_filter, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  depositEvents(
+    skip: $skip
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    where: $where
+    block: $block
+    subgraphError: $subgraphError
+  ) {
+    id
+    _index
+    _contractType
+    _amount
+    _senderAddress
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}query messageEvent($id: ID!, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  messageEvent(id: $id, block: $block, subgraphError: $subgraphError) {
+    id
+    message
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}query messageEvents($skip: Int, $first: Int, $orderBy: MessageEvent_orderBy, $orderDirection: OrderDirection, $where: MessageEvent_filter, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  messageEvents(
+    skip: $skip
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    where: $where
+    block: $block
+    subgraphError: $subgraphError
+  ) {
+    id
+    message
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}query withdrawEvent($id: ID!, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  withdrawEvent(id: $id, block: $block, subgraphError: $subgraphError) {
+    id
+    _index
+    _contractType
+    _amount
+    _recipientAddress
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}query withdrawEvents($skip: Int, $first: Int, $orderBy: WithdrawEvent_orderBy, $orderDirection: OrderDirection, $where: WithdrawEvent_filter, $block: Block_height, $subgraphError: _SubgraphErrorPolicy_!) {
+  withdrawEvents(
+    skip: $skip
+    first: $first
+    orderBy: $orderBy
+    orderDirection: $orderDirection
+    where: $where
+    block: $block
+    subgraphError: $subgraphError
+  ) {
+    id
+    _index
+    _contractType
+    _amount
+    _recipientAddress
+    blockNumber
+    blockTimestamp
+    transactionHash
+  }
+}

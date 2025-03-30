@@ -1,0 +1,175 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+optimizer = true
+optimizer_runs = 99999
+solc = "0.8.23"
+
+[rpc_endpoints]
+mainnet = "https://mainnet.infura.io/v3/${INFURA_API_KEY}"
+# mainnet = "https://core.gashawk.io/rpc"
+goerli = "https://goerli.infura.io/v3/${INFURA_API_KEY}"
+sepolia = "https://sepolia.infura.io/v3/${INFURA_API_KEY}"
+holesky = "https://ethereum-holesky.publicnode.com"
+optimism = "https://optimism-mainnet.infura.io/v3/${INFURA_API_KEY}"
+optimism-goerli = "https://optimism-goerli.infura.io/v3/${INFURA_API_KEY}"
+arbitrum = "https://arbitrum-mainnet.infura.io/v3/${INFURA_API_KEY}"
+bnb = "https://bsc-mainnet.public.blastapi.io"
+polygon = "https://polygon-mainnet.infura.io/v3/${INFURA_API_KEY}" # 137 # legacy
+polygon-mumbai = "https://polygon-mumbai.infura.io/v3/${INFURA_API_KEY}" # 80001 # legacy
+polygon-zkevm = "https://zkevm-rpc.com"
+polygon-zkevm-testnet = "https://rpc.public.zkevm-test.net"
+mantle = "https://rpc.mantle.xyz/"
+mantle-testnet = "https://rpc.testnet.mantle.xyz/"
+gnosis = "https://gnosis.drpc.org"
+gnosis-testnet = "https://rpc.chiadochain.net"
+filecoin = "https://rpc.ankr.com/filecoin"
+filecoin-testnet = "https://filecoin-calibration.chainstacklabs.com/rpc/v1"
+zksync = "https://mainnet.era.zksync.io"
+zksync-testnet = "https://testnet.era.zksync.dev"
+base = "https://developer-access-mainnet.base.org"
+base-testnet = "https://goerli.base.org"
+base-sepolia = "https://sepolia.base.org"
+milkomeda-c1 = "https://rpc-mainnet-cardano-evm.c1.milkomeda.com"
+milkomeda-c1-testnet = "https://rpc-devnet-cardano-evm.c1.milkomeda.com"
+taiko-grimsvotn = "https://rpc.test.taiko.xyz"
+taiko-hekla = "https://rpc.hekla.taiko.xyz"
+taiko-katla = "https://rpc.katla.taiko.xyz"
+avalanche = "https://avalanche-mainnet.infura.io/v3/${INFURA_API_KEY}"
+linea = "https://rpc.linea.build"
+linea-goerli = "https://rpc.goerli.linea.build"
+scroll = "https://rpc.scroll.io"
+scroll-sepolia = "https://sepolia-rpc.scroll.io"
+moonbeam = "https://rpc.api.moonbeam.network"
+manta-pacific = "https://pacific-rpc.manta.network/http"
+celo = "https://celo-mainnet.infura.io/v3/${INFURA_API_KEY}"
+celo-alfajores = "https://alfajores-forno.celo-testnet.org"
+cyber = "https://rpc.cyber.co"
+degen = "https://rpc.degen.tips"
+mode = "https://mainnet.mode.network"
+blast = "https://rpc.blast.io"
+
+
+
+############################################################
+# non-forge settings, but necessary for deploy.py
+############################################################
+[profile.chain_ids]
+mainnet = "1"
+goerli = "5"
+sepolia = "11155111"
+holesky = "17000"
+optimism = "10"
+optimism-goerli = "420"
+arbitrum = "42161"
+polygon = "137"
+polygon-mumbai = "80001"
+polygon-zkevm = "1101"
+polygon-zkevm-testnet = "1442"
+mantle = "5000"
+mantle-testnet = "5001"
+gnosis = "100"
+gnosis-testnet = "10200"
+filecoin = "314"
+filecoin-testnet = "314159"
+zksync = "324"
+zksync-testnet = "280"
+base = "8453"
+base-testnet = "84531"
+base-sepolia = "84532"
+milkomeda-c1 = "2001"
+milkomeda-c1-testnet = "200101"
+taiko-grimsvotn = "167005"
+taiko-katla = "167008"
+taiko-hekla = "167009"
+bnb = "56"
+avalanche = "43114"
+linea = "59144"
+linea-goerli = "59140"
+moonbeam = "1284"
+scroll = "534352"
+scroll-sepolia = "534351"
+manta-pacific = "169"
+celo = "42220"
+celo-alfajores = "44787"
+cyber = "7560"
+degen = "666666666"
+mode = "34443"
+blast = "81457"
+
+## for chains that only support legacy transactions
+[profile.legacy]
+polygon = true
+polygon-mumbai = true
+milkomeda-c1 = true
+arbitrum = true
+mantle = true
+mantle-testnet = true
+bnb = true
+avalanche = true
+goerli = true
+manta-pacific = true
+cyber = true
+degen = true
+mode = true
+blast = true
+
+
+[etherscan]
+mainnet = { key = "${ETHERSCAN_TOKEN}" }
+goerli = { key = "${ETHERSCAN_TOKEN}" }
+sepolia = { key = "${ETHERSCAN_TOKEN}" }
+holesky = { key = "${ETHERSCAN_TOKEN}", url = "https://holesky.etherscan.io/api" }
+polygon = { key = "${POLYGONSCAN_TOKEN}", url = "https://api.polygonscan.com/api" }
+polygon-mumbai = { key = "${POLYGONSCAN_TOKEN}", url = "https://api-testnet.polygonscan.com/api" }
+optimism = { key = "${OPTISCAN_TOKEN}" }
+optimism-goerli = { key = "${OPTISCAN_TOKEN}" }
+arbitrum = { key = "${ARBISCAN_TOKEN}" }
+polygon-zkevm-testnet = { key = "${POLYGONSCAN_ZKEVM_TOKEN}" }
+gnosis = { key = "${GNOSISSCAN_TOKEN}" , url="https://api.gnosisscan.io/api"}
+gnosis-testnet = { key = "${GNOSISSCAN_TOKEN}" , url="https://gnosis-chiado.blockscout.com/api"}
+base = { key = "${BASESCAN_TOKEN}", url = "https://api.basescan.org/api" }
+base-testnet = { key = "${BASESCAN_TOKEN}", url = "https://api-goerli.basescan.org/api" }
+base-sepolia = { key = "${BASESCAN_TOKEN}", url = "https://api-sepolia.basescan.org/api" }
+taiko-grimsvotn = { key = "", url = "https://explorer.test.taiko.xyz/api" }
+taiko-hekla = { key = "${ETHERSCAN_TOKEN}", url = "https://api.routescan.io/v2/network/testnet/evm/167009/etherscan" }
+taiko-katla = { key = "${ETHERSCAN_TOKEN}", url = "https://explorer.katla.taiko.xyz/api" }
+mantle = { key = "${ETHERSCAN_TOKEN}", url = "https://explorer.mantle.xyz/api" }
+mantle-testnet = { key = "${ETHERSCAN_TOKEN}", url = "https://explorer.testnet.mantle.xyz/api" }
+avalanche = { key = "${SNOWTRACE_TOKEN}", url = "https://api.snowtrace.io/api" }
+bnb = { key = "${BSCSCAN_TOKEN}", url = "https://api.bscscan.com" }
+linea = { key = "${LINEASCAN_TOKEN}", url = "https://api.lineascan.build/api" }
+linea-goerli = { key = "${LINEASCAN_TOKEN}", url = "https://api-goerli.lineascan.build/api" }
+scroll = { key = "${SCROLLSCAN_TOKEN}", url = "https://api.scrollscan.com/api"}
+scroll-sepolia = { key = "${SCROLLSCAN_TOKEN}" , url = "https://api.scrollscan.com/api"}
+moonbeam = { key = "${MOONSCAN_TOKEN}", url = "https://api-moonbeam.moonscan.io/api" }
+milkomeda-c1 = { key = "", url = " https://explorer-mainnet-cardano-evm.c1.milkomeda.com/api"}
+manta-pacific = { key = "", url = "https://manta-pacific.calderaexplorer.xyz/api" }
+celo = { key = "lolkek", url = "https://explorer.celo.org/mainnet/api" }
+celo-alfajores = { key = "lolkek", url = "https://explorer.celo.org/alfajores/api" }
+cyber = { key = "${ETHERSCAN_API_KEY}", etherscan-api-key = "${ETHERSCAN_API_KEY}", url = "https://cyberscan.co/api" }
+degen = { key = "${ETHERSCAN_TOKEN}", url = "https://explorer.degen.tips/api" }
+mode = { key = "${ETHERSCAN_TOKEN}", url = "https://api.routescan.io/v2/network/mainnet/evm/34443/etherscan" }
+blast = { key = "${BLASTSCAN_TOKEN}", url = "https://api.blastscan.io/api" }
+
+
+# forge script script/PeanutV4.3.s.sol:DeployScript --rpc-url https://rpc.cyber.co -vvvv --legacy  --etherscan-api-key hello --verifier-url https://cyberscan.co/api --verify
+
+############################################################
+# For some reason, some of these verifications didn't work. Below the commands
+# Linea
+# forge script script/PeanutV4.3.s.sol:DeployScript --rpc-url https://rpc.cyber.co --verify -vvvv --legacy --broadcast --etherscan-api-key ${ETHERSCAN_API_KEY} --verifier-url https://cyberscan.co/api
+# forge verify-contract --etherscan-api-key ${LINEASCAN_TOKEN}" --verifier-url https://api.lineascan.build/api 0x7b36e10aa3ff44576eff4b1afb80587b9b3ba3a5 src/V4/PeanutBatcherV4.sol:PeanutBatcherV4 --watch
+# forge verify-contract --etherscan-api-key ${LINEASCAN_TOKEN}" --verifier-url https://api-testnet.lineascan.build/api 0x8d1a17A3A4504aEB17515645BA8098f1D75237f7 src/V4/PeanutV4.sol:PeanutV4 --watch
+# forge verify-contract --etherscan-api-key ${LINEASCAN_TOKEN}" --verifier-url https://api-testnet.lineascan.build/api 0x7B36e10AA3ff44576efF4b1AfB80587B9b3BA3a5 src/V4/PeanutBatcherV4.sol:PeanutBatcherV4 --watch
+
+# Base Goerli
+# forge verify-contract --etherscan-api-key ${BASESCAN_TOKEN} --verifier-url https://api-goerli.basescan.org/api 0x1851359AB8B002217cf4D108d7F027B63563754C src/V4/PeanutBatcherV4.sol:PeanutBatcherV4 --watch
+# forge verify-contract --etherscan-api-key ${BASESCAN_TOKEN} --verifier-url https://api-goerli.basescan.org/api 0x897F8EDdB345F0d16081615823F76055Ad60A00c src/V4/PeanutV4.sol:PeanutV4 --watch
+
+# forge verify-contract  --verifier-url https://manta-pacific.calderaexplorer.xyz/api 0x7B36e10AA3ff44576efF4b1AfB80587B9b3BA3a5 src/V4/PeanutBatcherV4.3.sol:PeanutBatcherV4 --watch
+############################################################
+
+# ----
+# forge verify-contract --etherscan-api-key ${BASESCAN_TOKEN} --verifier-url https://api-sepolia.basescan.org/api 0x7b36e10aa3ff44576eff4b1afb80587b9b3ba3a5 src/V4/PeanutV4.3.sol:PeanutV4 --watch --constructor-args 0000000000000000000000000000000000000000000000000000000000000000

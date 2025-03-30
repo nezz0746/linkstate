@@ -1,0 +1,61 @@
+type DepositTotals @entity(immutable: false) {
+  id: ID!
+  tokenAddress: Bytes! # address
+  name: String
+  symbol: String
+  decimals: Int
+  totalDeposited: BigInt! # uint256
+  totalDeposists: BigInt! # uint256
+  totalClaimed: BigInt! # uint256
+  chainId: Int!
+}
+
+type Deposit @entity(immutable: false) {
+  id: ID! # index
+  amount: BigInt! # uint256
+  tokenAddress: Bytes! # address
+  tokenSymbol: String
+  tokenDecimals: Int
+  tokenName: String
+  tokenTotals: DepositTotals!
+  contractType: Int! # uint8
+  claimed: Boolean!
+  claimedAt: BigInt
+  requiresMFA: Boolean!
+  timestamp: BigInt!
+  tokenId: BigInt!
+  senderAddress: Bytes! # address
+  recipient: Bytes # address
+  reclaimableAfter: BigInt
+  chainId: Int!
+}
+
+type DepositEvent @entity(immutable: true) {
+  id: Bytes!
+  _index: BigInt! # uint256
+  _contractType: Int! # uint8
+  _amount: BigInt! # uint256
+  _senderAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MessageEvent @entity(immutable: true) {
+  id: Bytes!
+  message: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawEvent @entity(immutable: true) {
+  id: Bytes!
+  _index: BigInt! # uint256
+  _contractType: Int! # uint8
+  _amount: BigInt! # uint256
+  _recipientAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

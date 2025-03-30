@@ -1,0 +1,17 @@
+{
+  "name": "@cryptoresume/common",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare:common": "node src/build.js",
+    "generate:tokenlists": "tsx src/get-token-lists.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.8",
+    "tsx": "^4.7.3"
+  },
+  "dependencies": {
+    "typescript": "^5.4.4",
+    "viem": "2.20.0"
+  }
+}

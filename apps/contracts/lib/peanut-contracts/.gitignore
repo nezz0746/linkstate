@@ -1,0 +1,42 @@
+# random
+zksync_deprecated/
+
+# Compiler files
+cache/
+out/
+lib/
+
+playground/
+**/node_modules/
+__pycache__/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+# Docs
+docs/
+
+# Playgrounds
+playground/
+
+# Dotenv file
+.env
+*.env
+!.dummy.env
+__pycache__/
+
+# random stuff
+test_uni_example/
+
+# Ignore all files in a directory
+broadcast/
+
+# flattened files
+*.flattened.sol
+
+# vscode
+.vscode/
+
+venv/
