@@ -24,7 +24,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    if (ready && authenticated && isConnected) {
+    if (ready) {
       const timer = setTimeout(() => {
         setShowContent(true);
       }, 500);
