@@ -60,7 +60,7 @@ export default function ProfilePage() {
         <main className="md:px-4 md:py-6">
           <div className="grid gap-2 lg:grid-cols-3 lg:gap-6">
             <div className="space-y-2 lg:col-span-2  bg-white">
-              <div className="h-40 bg-gradient-to-r from-blue-500 to-purple-600" />
+              <div className="h-40 bg-gradient-to-b from-black to-white" />
               <div className="relative px-6">
                 {pfpUrl && (
                   <div className="absolute -top-12 flex h-24 w-24 items-center justify-center border-4 border-white bg-white">
@@ -75,7 +75,7 @@ export default function ProfilePage() {
                 )}
                 <div className="flex justify-end pt-4">
                   <div className="flex gap-2">
-                    <Button
+                    {/* <Button
                       variant="outline"
                       size="sm"
                       onClick={() => {
@@ -88,7 +88,7 @@ export default function ProfilePage() {
                         <Share2 className="mr-2 h-4 w-4" />
                       )}
                       {copied ? "Copied" : "Reference"}
-                    </Button>
+                    </Button> */}
                     <Button size="sm">
                       <MessageSquare className="md:mr-2 h-4 w-4" />
                       <p className="hidden md:block">Send Paid Message</p>
