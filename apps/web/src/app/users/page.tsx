@@ -5,6 +5,8 @@ import { User } from "~/src/types";
 import { useQuery } from "@tanstack/react-query";
 import Divider from "~/src/components/Divider";
 
+export const dynamic = "force-dynamic";
+
 export default function UsersPage() {
   const { data, isLoading, error } = useQuery<{ users: User[] }>({
     queryKey: ["users"],
