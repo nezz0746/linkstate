@@ -5,13 +5,11 @@ import { User } from "~/src/types";
 import { useQuery } from "@tanstack/react-query";
 import Divider from "~/src/components/Divider";
 
-export const dynamic = "force-dynamic";
-
 export default function UsersPage() {
   const { data, isLoading, error } = useQuery<{ users: User[] }>({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("/api/users");
+      const res = await fetch("/api/users/list");
       if (!res.ok) {
         throw new Error("Failed to fetch users");
       }
