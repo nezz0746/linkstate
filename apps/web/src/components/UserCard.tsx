@@ -13,8 +13,11 @@ import { Badge } from "@cryptoresume/ui/components/ui/badge";
 import { truncateAddress } from "~/src/lib/utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
-import { Wallet } from "lucide-react";
+import { MessageSquare, Wallet } from "lucide-react";
 import { FarcasterIcon } from "./Icons";
+import { Button } from "@cryptoresume/ui/components/ui/button";
+import { useProfileNFT } from "../hooks/useProfileNFT";
+import { Address } from "viem";
 
 dayjs.extend(relativeTime);
 
@@ -23,6 +26,9 @@ interface UserCardProps {
 }
 
 export function UserCard({ user }: UserCardProps) {
+  const { profileNFT } = useProfileNFT(
+    user.wallet.address as Address | undefined,
+  );
   return (
     <Card className="w-full">
       <CardHeader className="flex flex-row items-center gap-4">
@@ -35,6 +41,7 @@ export function UserCard({ user }: UserCardProps) {
             {user.customMetadata.ens?.[0] || user.wallet.address?.slice(0, 2)}
           </AvatarFallback>
         </Avatar>
+
         <div className="flex flex-col">
           <h3 className="text-2xl font-bold">
             {user.customMetadata.ens ||
@@ -50,6 +57,10 @@ export function UserCard({ user }: UserCardProps) {
             )}
           </div>
         </div>
+        <Button size="sm" disabled={!profileNFT?.tokenId}>
+          <MessageSquare className="md:mr-2 h-4 w-4" />
+          <p className="hidden md:block">Send Paid Message</p>
+        </Button>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">

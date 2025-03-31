@@ -54,10 +54,7 @@ export default function HomePage() {
                       )}
                       {copied ? "Copied" : "Reference"}
                     </Button> */}
-            <Button size="sm">
-              <MessageSquare className="md:mr-2 h-4 w-4" />
-              <p className="hidden md:block">Send Paid Message</p>
-            </Button>
+
             <Button
               size="icon"
               variant="outline"

@@ -75,14 +75,13 @@ export type DomainsReturnType = {
 
 export type ExperienceClaim = {
   user: string; // wallet address
-  companyId: number;
+  companyAddress: number;
   title: string;
   startDate: number; // unix timestamp
   endDate: number; // unix timestamp
   description: string;
-  isCurrent: boolean;
   claimHash: string; // hash of content
-  userSignature: string; // EIP-191 signature
+  signature: string; // EIP-191 signature
 };
 
 export interface LinkedAccount {

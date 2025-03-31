@@ -115,8 +115,6 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
     uint256 toProfileId,
     string calldata data /* content - now handled off-chain */
   ) external payable {
-    _requireOwned(toProfileId);
-
     require(
       msg.value >= profiles[toProfileId].messagePrice,
       "LinkStateProfile: Insufficient payment"

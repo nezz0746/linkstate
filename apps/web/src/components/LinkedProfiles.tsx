@@ -20,6 +20,7 @@ import { linkStateProfileAddress } from "@cryptoresume/contracts";
 import { base } from "viem/chains";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { useProfileNFT } from "../hooks/useProfileNFT";
 dayjs.extend(relativeTime);
 
 const LinkedProfiles = () => {
@@ -32,20 +33,7 @@ const LinkedProfiles = () => {
   });
   const { ensVerifiedInPast30Days, customMetadata } = useEnsVerification();
   const { address } = useAccount();
-  const { data: profileNFT } = useQuery({
-    queryKey: ["profileNFT", address],
-    queryFn: async () => {
-      if (!address) return undefined;
-      return nfts(Network.BASE_MAINNET)
-        .getMintedNfts(address, {
-          contractAddresses: [linkStateProfileAddress[base.id]],
-        })
-        .then((res) => {
-          console.log({ res });
-          return res.nfts[0];
-        });
-    },
-  });
+  const { profileNFT } = useProfileNFT(address);
 
   console.log({ profileNFT, address });
 

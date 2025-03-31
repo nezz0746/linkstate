@@ -42,9 +42,9 @@ export default function UsersPage() {
   }
 
   return (
-    <div className="container py-8">
-      <h1 className="text-4xl font-bold mb-8">Users</h1>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="p-2 md:p-4">
+      <h1 className="text-4xl font-serif font-bold mb-8">Users</h1>
+      <div className="grid gap-6 grid-cols-1">
         {data?.users.map((user) => <UserCard key={user.id} user={user} />)}
       </div>
     </div>

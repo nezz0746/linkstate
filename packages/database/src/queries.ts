@@ -1,46 +1,48 @@
 import { eq } from "drizzle-orm";
-import { db, NewUser, users as usersTable } from ".";
+import { db, NewMessage, messages, NewExperience, experiences } from ".";
 
 export class AppDB {
-  static async createUser(
-    args: Omit<NewUser, "id" | "created_at" | "updated_at">,
-  ) {
-    const user = await db
-      .insert(usersTable)
+  static async createMessage(args: NewMessage) {
+    const message = await db
+      .insert(messages)
       .values({
         ...args,
-        created_at: new Date(),
-        updated_at: new Date(),
-      })
-      .onConflictDoUpdate({
-        target: [usersTable.address],
-        set: {
-          ...args,
-          updated_at: new Date(),
-        },
       })
       .returning();
 
-    return user;
+    return message[0];
   }
 
-  static async getUserByFid(fid: string) {
-    const user = await db
+  static async listMessagesByRecipient(recipientAddress: string) {
+    const messageList = await db
       .select()
-      .from(usersTable)
-      .where(eq(usersTable.fid, fid))
+      .from(messages)
+      .where(eq(messages.recipientAddress, recipientAddress))
+      .orderBy(messages.createdAt)
       .execute();
 
-    return user[0];
+    return messageList;
   }
 
-  static async getUserByAddress(address: string) {
-    const user = await db
+  static async createExperience(args: NewExperience) {
+    const experience = await db
+      .insert(experiences)
+      .values({
+        ...args,
+      })
+      .returning();
+
+    return experience[0];
+  }
+
+  static async listExperiencesByUser(userAddress: string) {
+    const experienceList = await db
       .select()
-      .from(usersTable)
-      .where(eq(usersTable.address, address))
+      .from(experiences)
+      .where(eq(experiences.user, userAddress))
+      .orderBy(experiences.startDate)
       .execute();
 
-    return user[0];
+    return experienceList;
   }
 }
