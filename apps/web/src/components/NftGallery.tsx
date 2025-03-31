@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@cryptoresume/ui/components/ui/button";
 import { Card, CardContent } from "@cryptoresume/ui/components/ui/card";
-import { ExternalLink } from "lucide-react";
 import useNfts from "../hooks/useNfts";
 import ChainIcon from "./ChainIcon";
 import { Skeleton } from "@cryptoresume/ui/components/ui/skeleton";
@@ -53,34 +52,34 @@ export function NFTGallery() {
           }
 
           return (
-            <Card key={id} className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="relative aspect-square">
-                  <Image
-                    src={media}
-                    alt={nft.name ?? "NFT " + id}
-                    fill
-                    unoptimized
-                    className="object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (target.src !== nft.raw?.metadata?.image) {
-                        target.src = nft.raw?.metadata?.image;
-                      }
-                    }}
-                  />
-                  <div className="absolute top-3 right-3 h-8 w-8">
-                    <ChainIcon alchemyNetwork={nft.network} />
-                  </div>
+            <div key={id} className="overflow-hidden border p-0">
+              <div className="relative aspect-square">
+                <Image
+                  src={media}
+                  alt={nft.name ?? "NFT " + id}
+                  fill
+                  unoptimized
+                  className="object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== nft.raw?.metadata?.image) {
+                      target.src = nft.raw?.metadata?.image;
+                    }
+                  }}
+                />
+                <div className="absolute top-2 right-2 h-4 w-4 md:h-6 md:w-6">
+                  <ChainIcon alchemyNetwork={nft.network} />
                 </div>
-                <div className="p-3">
-                  <h4 className="font-medium truncate">{nft.name}</h4>
-                  <p className="text-xs text-muted-foreground">
-                    {nft.collection?.name}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="p-3">
+                <h4 className="font-medium text-xs md:text-sm truncate">
+                  {nft.name}
+                </h4>
+                <p className="text-xs text-muted-foreground">
+                  {nft.collection?.name}
+                </p>
+              </div>
+            </div>
           );
         })}
       </div>

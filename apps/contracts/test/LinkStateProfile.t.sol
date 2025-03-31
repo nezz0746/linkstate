@@ -13,9 +13,9 @@ contract LinkStateProfileTest is Test {
 
   event ProfileCreated(uint256 indexed profileId, address indexed owner);
   event MessageSent(
+    uint256 indexed messageId,
     address indexed from,
-    uint256 indexed toProfileId,
-    string content
+    uint256 indexed toProfileId
   );
   event FeesWithdrawn(uint256 amount);
 
@@ -41,6 +41,7 @@ contract LinkStateProfileTest is Test {
     assertEq(profile.symbol(), "LSP");
     assertEq(profile.owner(), owner);
     assertEq(profile.baseURI(), "https://api.linkstate.xyz/metadata/");
+    assertEq(profile.messageCount(), 0);
   }
 
   function test_Mint() public {
@@ -123,22 +124,21 @@ contract LinkStateProfileTest is Test {
     profile.mint(alice);
 
     uint256 payment = 0.0001 ether;
-    string memory message = "Hello Alice!";
-
     uint256 aliceBalanceBefore = alice.balance;
     uint256 bobBalanceBefore = bob.balance;
 
     vm.prank(bob);
-    vm.expectEmit(true, true, false, true);
-    emit MessageSent(bob, 1, message);
-    profile.sendMessage{value: payment}(1, message);
+    vm.expectEmit(true, true, true, true);
+    emit MessageSent(1, bob, 1);
+    profile.sendMessage{value: payment}(1, "");
 
-    // Calculate exact amounts
+    // Calculate expected amounts
     uint256 protocolFee = (payment * profile.PROTOCOL_FEE_BPS()) / 10000;
     uint256 recipientPayment = payment - protocolFee;
 
     assertEq(alice.balance, aliceBalanceBefore + recipientPayment);
     assertEq(bob.balance, bobBalanceBefore - payment);
+    assertEq(profile.messageCount(), 1);
   }
 
   function test_SendMessage_InsufficientPayment() public {
@@ -151,7 +151,7 @@ contract LinkStateProfileTest is Test {
 
     vm.prank(bob);
     vm.expectRevert("LinkStateProfile: Insufficient payment");
-    profile.sendMessage{value: 0.0001 ether}(1, "Hello Alice!");
+    profile.sendMessage{value: 0.0001 ether}(1, "");
   }
 
   function test_SendMessage_NonexistentProfile() public {
@@ -159,7 +159,7 @@ contract LinkStateProfileTest is Test {
     vm.expectRevert(
       abi.encodeWithSignature("ERC721NonexistentToken(uint256)", 1)
     );
-    profile.sendMessage{value: 0.0001 ether}(1, "Hello!");
+    profile.sendMessage{value: 0.0001 ether}(1, "");
   }
 
   function test_PaymentFailure() public {
@@ -171,7 +171,7 @@ contract LinkStateProfileTest is Test {
 
     vm.prank(bob);
     vm.expectRevert("LinkStateProfile: Payment failed");
-    profile.sendMessage{value: 0.0001 ether}(1, "Hello!");
+    profile.sendMessage{value: 0.0001 ether}(1, "");
   }
 
   function test_SendMessage_WithFees() public {
@@ -179,7 +179,6 @@ contract LinkStateProfileTest is Test {
     profile.mint(alice);
 
     uint256 payment = 1 ether;
-    string memory message = "Hello Alice!";
     uint256 expectedFee = (payment * profile.PROTOCOL_FEE_BPS()) / 10000; // 5%
     uint256 expectedPayment = payment - expectedFee;
 
@@ -187,12 +186,36 @@ contract LinkStateProfileTest is Test {
     uint256 bobBalanceBefore = bob.balance;
 
     vm.prank(bob);
-    profile.sendMessage{value: payment}(1, message);
+    vm.expectEmit(true, true, true, true);
+    emit MessageSent(1, bob, 1);
+    profile.sendMessage{value: payment}(1, "");
 
     // Check balances
     assertEq(alice.balance, aliceBalanceBefore + expectedPayment);
     assertEq(bob.balance, bobBalanceBefore - payment);
     assertEq(profile.accumulatedFees(), expectedFee);
+    assertEq(profile.messageCount(), 1);
+  }
+
+  function test_MessageIdIncrement() public {
+    // Setup profiles
+    vm.prank(alice);
+    profile.mint(alice);
+    vm.prank(bob);
+    profile.mint(bob);
+
+    // Send multiple messages and check IDs
+    vm.startPrank(charlie);
+
+    profile.sendMessage{value: 0.0001 ether}(1, "");
+    assertEq(profile.messageCount(), 1);
+
+    profile.sendMessage{value: 0.0001 ether}(2, "");
+    assertEq(profile.messageCount(), 2);
+
+    profile.sendMessage{value: 0.0001 ether}(1, "");
+    assertEq(profile.messageCount(), 3);
+    vm.stopPrank();
   }
 
   function test_WithdrawFees() public {
@@ -201,7 +224,7 @@ contract LinkStateProfileTest is Test {
     profile.mint(alice);
 
     vm.prank(bob);
-    profile.sendMessage{value: 1 ether}(1, "Hello");
+    profile.sendMessage{value: 1 ether}(1, "");
 
     uint256 expectedFee = (1 ether * profile.PROTOCOL_FEE_BPS()) / 10000;
     uint256 ownerBalanceBefore = owner.balance;
@@ -238,9 +261,9 @@ contract LinkStateProfileTest is Test {
 
     // Send multiple messages
     vm.prank(charlie);
-    profile.sendMessage{value: 1 ether}(1, "Message to Alice");
+    profile.sendMessage{value: 1 ether}(1, "");
     vm.prank(charlie);
-    profile.sendMessage{value: 0.5 ether}(2, "Message to Bob");
+    profile.sendMessage{value: 0.5 ether}(2, "");
 
     uint256 expectedFee = ((1 ether * profile.PROTOCOL_FEE_BPS()) / 10000) +
       ((0.5 ether * profile.PROTOCOL_FEE_BPS()) / 10000);
@@ -252,6 +275,7 @@ contract LinkStateProfileTest is Test {
 
     assertEq(owner.balance, ownerBalanceBefore + expectedFee);
     assertEq(profile.accumulatedFees(), 0);
+    assertEq(profile.messageCount(), 2);
   }
 
   receive() external payable {}

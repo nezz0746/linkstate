@@ -5,9 +5,10 @@ import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
-  uint256 public price = 0 ether;
-  uint256 public mintLimit = 1;
-  uint256 public totalSupply = 0;
+  uint256 public price;
+  uint256 public mintLimit;
+  uint256 public totalSupply;
+  uint256 public messageCount; // Track total messages sent
   string public baseURI;
   uint256 public constant MIN_MESSAGE_PRICE = 0.0001 ether;
   uint256 public constant PROTOCOL_FEE_BPS = 500; // 5% in basis points
@@ -21,20 +22,26 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
   mapping(uint256 => Profile) public profiles;
 
   event MessageSent(
+    uint256 indexed messageId,
     address indexed from,
     uint256 indexed toProfileId,
-    string content
+    string data
   );
 
   event ProfileCreated(uint256 indexed profileId, address indexed owner);
   event FeesWithdrawn(uint256 amount);
 
-  constructor() {}
-
-  function initialize(string calldata _baseURI) public initializer {
-    __ERC721_init("LinkState Profile", "LSP");
+  function initialize(string memory _uri) public initializer {
     __Ownable_init(msg.sender);
-    baseURI = _baseURI;
+    __ERC721_init("LinkState Profile", "LSP");
+    baseURI = _uri;
+
+    // Initialize state variables
+    price = 0 ether;
+    mintLimit = 1;
+    totalSupply = 0;
+    messageCount = 0;
+    accumulatedFees = 0;
   }
 
   function mint(address to) public payable {
@@ -94,7 +101,7 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
   // Send message to profile
   function sendMessage(
     uint256 toProfileId,
-    string calldata content
+    string calldata data /* content - now handled off-chain */
   ) external payable {
     _requireOwned(toProfileId);
 
@@ -116,7 +123,9 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
     }("");
     require(success, "LinkStateProfile: Payment failed");
 
-    emit MessageSent(msg.sender, toProfileId, content);
+    // Increment message count and emit event with message ID
+    messageCount++;
+    emit MessageSent(messageCount, msg.sender, toProfileId, data);
   }
 
   // Withdraw accumulated protocol fees

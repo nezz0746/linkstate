@@ -10,3 +10,6 @@
 [submodule "apps/contracts/lib/openzeppelin-contracts-upgradeable"]
 	path = apps/contracts/lib/openzeppelin-contracts-upgradeable
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "apps/contracts/lib/eas-contracts"]
+	path = apps/contracts/lib/eas-contracts
+	url = https://github.com/ethereum-attestation-service/eas-contracts
