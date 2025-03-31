@@ -138,6 +138,12 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
     emit MessageSent(messageCount, msg.sender, toProfileId, data);
   }
 
+  function getProfile(
+    uint256 profileId
+  ) external view returns (Profile memory) {
+    return profiles[profileId];
+  }
+
   // Withdraw accumulated protocol fees
   function withdrawFees() external onlyOwner {
     uint256 amount = accumulatedFees;
