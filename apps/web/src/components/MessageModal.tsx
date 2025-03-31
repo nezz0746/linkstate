@@ -70,7 +70,7 @@ export function MessageModal() {
           <DialogTitle>Send Message</DialogTitle>
           <DialogDescription>
             Send a message to{" "}
-            {selectedUser.user.customMetadata.ens ||
+            {selectedUser.user.customMetadata?.ens ||
               selectedUser.user.farcaster?.username ||
               selectedUser.user.wallet.address?.slice(0, 6)}
           </DialogDescription>

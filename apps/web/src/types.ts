@@ -107,7 +107,7 @@ export interface User {
   id: string;
   createdAt: string;
   isGuest: boolean;
-  customMetadata: {
+  customMetadata?: {
     ens?: string;
     ensVerifiedAt?: string;
   };

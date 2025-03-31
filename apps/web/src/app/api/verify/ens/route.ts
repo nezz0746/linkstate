@@ -53,7 +53,7 @@ export const DELETE = async (request: NextRequest) => {
     .getUser(userId)
     .then((user) => user.customMetadata)) as CustomMetadata;
 
-  const ens = customMetadata.ens;
+  const ens = customMetadata?.ens;
 
   if (!ens) {
     return NextResponse.json({ error: "No ENS to unlink" }, { status: 400 });

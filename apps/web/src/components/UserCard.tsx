@@ -51,22 +51,23 @@ export function UserCard({ user }: UserCardProps) {
             <AvatarImage
               src={user.farcaster?.pfp}
               alt={
-                user.customMetadata.ens || user.farcaster?.username || "User"
+                user.customMetadata?.ens || user.farcaster?.username || "User"
               }
             />
             <AvatarFallback>
-              {user.customMetadata.ens?.[0] || user.wallet.address?.slice(0, 2)}
+              {user.customMetadata?.ens?.[0] ||
+                user.wallet.address?.slice(0, 2)}
             </AvatarFallback>
           </Avatar>
 
           <div className="flex flex-col min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
               <h3 className="font-semibold truncate">
-                {user.customMetadata.ens ||
+                {user.customMetadata?.ens ||
                   user.farcaster?.username ||
                   truncateAddress(user.wallet.address || "")}
               </h3>
-              {user.customMetadata.ensVerifiedAt && (
+              {user.customMetadata?.ensVerifiedAt && (
                 <Badge variant="secondary" className="text-xs shrink-0">
                   ENS Verified
                 </Badge>
