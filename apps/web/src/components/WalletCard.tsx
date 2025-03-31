@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@cryptoresume/ui/components/ui/card";
 import { Button } from "@cryptoresume/ui/components/ui/button";
-import { ExternalLink, Router, Wallet } from "lucide-react";
+import { ExternalLink, Wallet } from "lucide-react";
 import { useAccount, useBalance } from "wagmi";
 import { truncateAddress } from "../helpers";
 import { formatEther } from "viem";

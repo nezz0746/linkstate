@@ -5,6 +5,8 @@ export const schema = pgSchema(appSlug);
 
 export const messages = schema.table("messages", {
   id: uuid("id").defaultRandom().primaryKey(),
+  txHash: text("tx_hash").notNull(),
+  fromAddress: text("from_address").notNull(),
   recipientAddress: text("recipient_address").notNull(),
   message: text("message"),
   createdAt: timestamp("created_at").defaultNow().notNull(),

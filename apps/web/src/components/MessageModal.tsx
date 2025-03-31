@@ -40,11 +40,15 @@ export function MessageModal() {
     data: txHash,
   } = useWriteLinkStateProfileSendMessage();
 
+  const { address } = useAccount();
+
   const { isLoading: isWaitingForTransactionSuccess } =
     useWaitForTransactionSuccess(txHash, () => {
       fetch("/api/message", {
         method: "POST",
         body: JSON.stringify({
+          fromAddress: address,
+          txHash: txHash,
           recipientAddress: selectedUser?.user.wallet.address,
           message,
         }),

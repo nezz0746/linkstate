@@ -13,6 +13,7 @@ import LinkedProfiles from "../components/LinkedProfiles";
 import Divider from "../components/Divider";
 import { useRouter } from "next/navigation";
 import { useExperience } from "../contexts/ExperienceContext";
+import { MessageList } from "../components/MessageList";
 
 export default function HomePage() {
   const { address } = useAccount();
@@ -43,21 +44,6 @@ export default function HomePage() {
         )}
         <div className="flex justify-end pt-4">
           <div className="flex gap-2">
-            {/* <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        //
-                      }}
-                    >
-                      {copied ? (
-                        <Check className="mr-2 h-4 w-4" />
-                      ) : (
-                        <Share2 className="mr-2 h-4 w-4" />
-                      )}
-                      {copied ? "Copied" : "Reference"}
-                    </Button> */}
-
             <Button
               size="icon"
               variant="outline"
@@ -115,6 +101,7 @@ export default function HomePage() {
             </div>
           </div>
           <Divider />
+          <MessageList />
         </div>
       </div>
     </>
