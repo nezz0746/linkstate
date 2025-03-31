@@ -12,6 +12,15 @@ import { FarcasterIcon } from "./Icons";
 import { Button } from "@cryptoresume/ui/components/ui/button";
 import { usePrivy, useUser } from "@privy-io/react-auth";
 import { useLinkAccount } from "@privy-io/react-auth";
+import { useQuery } from "@tanstack/react-query";
+import { useAccount } from "wagmi";
+import { nfts } from "../services/alchemy";
+import { Network } from "alchemy-sdk";
+import { linkStateProfileAddress } from "@cryptoresume/contracts";
+import { base } from "viem/chains";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 const LinkedProfiles = () => {
   const { user, refreshUser } = useUser();
@@ -22,9 +31,73 @@ const LinkedProfiles = () => {
     },
   });
   const { ensVerifiedInPast30Days, customMetadata } = useEnsVerification();
+  const { address } = useAccount();
+  const { data: profileNFT } = useQuery({
+    queryKey: ["profileNFT", address],
+    queryFn: async () => {
+      if (!address) return undefined;
+      return nfts(Network.BASE_MAINNET)
+        .getMintedNfts(address, {
+          contractAddresses: [linkStateProfileAddress[base.id]],
+        })
+        .then((res) => {
+          console.log({ res });
+          return res.nfts[0];
+        });
+    },
+  });
+
+  console.log({ profileNFT, address });
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
+      <Card>
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 bg-slate-100 flex items-center justify-center">
+                <Image
+                  src="/icon-transparent.png"
+                  alt="LSP"
+                  width={20}
+                  height={20}
+                />
+              </div>
+              <div>
+                <h4 className="font-medium">Link State Profile</h4>
+                <p className="text-xs text-muted-foreground">
+                  Your profile token
+                </p>
+              </div>
+            </div>
+            {profileNFT?.tokenId && (
+              <p className="text-sm border px-2 py-1 text-muted-foreground">
+                #{profileNFT.tokenId}
+              </p>
+            )}
+          </div>
+        </CardHeader>
+        <CardContent>
+          {profileNFT?.mint && (
+            <p className="mb-2 text-sm text-muted-foreground">
+              Minted {dayjs(profileNFT.mint.timestamp).fromNow()}
+            </p>
+          )}
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => {
+              if (!profileNFT?.tokenId) return;
+              window.open(
+                `https://opensea.io/item/base/${linkStateProfileAddress[base.id]}/${profileNFT?.tokenId}`,
+                "_blank",
+              );
+            }}
+          >
+            See Profile NFT
+          </Button>
+        </CardContent>
+      </Card>
       <Card>
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">

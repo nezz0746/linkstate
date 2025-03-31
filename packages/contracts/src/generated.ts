@@ -10,7 +10,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const linkStateAbi = [
   {
@@ -312,14 +312,14 @@ export const linkStateAbi = [
 ] as const
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const linkStateAddress = {
-  8453: '0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3',
+  8453: '0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8',
 } as const
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const linkStateConfig = {
   address: linkStateAddress,
@@ -631,7 +631,7 @@ export const linkStateCompanyAbi = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const linkStateProfileAbi = [
   {
@@ -809,6 +809,13 @@ export const linkStateProfileAbi = [
       { name: 'approved', internalType: 'bool', type: 'bool' },
     ],
     name: 'setApprovalForAll',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [{ name: 'newBaseURI', internalType: 'string', type: 'string' }],
+    name: 'setBaseURI',
     outputs: [],
     stateMutability: 'nonpayable',
   },
@@ -1092,14 +1099,14 @@ export const linkStateProfileAbi = [
 ] as const
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const linkStateProfileAddress = {
-  8453: '0x472C73F4C24893887d399d20cf1583c0D6E7CE20',
+  8453: '0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb',
 } as const
 
 /**
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const linkStateProfileConfig = {
   address: linkStateProfileAddress,
@@ -1113,7 +1120,7 @@ export const linkStateProfileConfig = {
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkState = /*#__PURE__*/ createUseReadContract({
   abi: linkStateAbi,
@@ -1123,7 +1130,7 @@ export const useReadLinkState = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateDefaultAdminRole =
   /*#__PURE__*/ createUseReadContract({
@@ -1135,7 +1142,7 @@ export const useReadLinkStateDefaultAdminRole =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"UPGRADE_INTERFACE_VERSION"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateUpgradeInterfaceVersion =
   /*#__PURE__*/ createUseReadContract({
@@ -1147,7 +1154,7 @@ export const useReadLinkStateUpgradeInterfaceVersion =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"companies"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateCompanies = /*#__PURE__*/ createUseReadContract({
   abi: linkStateAbi,
@@ -1158,7 +1165,7 @@ export const useReadLinkStateCompanies = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"companyBeacon"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateCompanyBeacon =
   /*#__PURE__*/ createUseReadContract({
@@ -1170,7 +1177,7 @@ export const useReadLinkStateCompanyBeacon =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"getCompanies"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateGetCompanies = /*#__PURE__*/ createUseReadContract(
   {
@@ -1183,7 +1190,7 @@ export const useReadLinkStateGetCompanies = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"getCompanyById"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateGetCompanyById =
   /*#__PURE__*/ createUseReadContract({
@@ -1195,7 +1202,7 @@ export const useReadLinkStateGetCompanyById =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"getRoleAdmin"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateGetRoleAdmin = /*#__PURE__*/ createUseReadContract(
   {
@@ -1208,7 +1215,7 @@ export const useReadLinkStateGetRoleAdmin = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"hasRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateHasRole = /*#__PURE__*/ createUseReadContract({
   abi: linkStateAbi,
@@ -1219,7 +1226,7 @@ export const useReadLinkStateHasRole = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"proxiableUUID"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateProxiableUuid =
   /*#__PURE__*/ createUseReadContract({
@@ -1231,7 +1238,7 @@ export const useReadLinkStateProxiableUuid =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"supportsInterface"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useReadLinkStateSupportsInterface =
   /*#__PURE__*/ createUseReadContract({
@@ -1243,7 +1250,7 @@ export const useReadLinkStateSupportsInterface =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkState = /*#__PURE__*/ createUseWriteContract({
   abi: linkStateAbi,
@@ -1253,7 +1260,7 @@ export const useWriteLinkState = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"addCompany"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateAddCompany = /*#__PURE__*/ createUseWriteContract(
   { abi: linkStateAbi, address: linkStateAddress, functionName: 'addCompany' },
@@ -1262,7 +1269,7 @@ export const useWriteLinkStateAddCompany = /*#__PURE__*/ createUseWriteContract(
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateGrantRole = /*#__PURE__*/ createUseWriteContract({
   abi: linkStateAbi,
@@ -1273,7 +1280,7 @@ export const useWriteLinkStateGrantRole = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateInitialize = /*#__PURE__*/ createUseWriteContract(
   { abi: linkStateAbi, address: linkStateAddress, functionName: 'initialize' },
@@ -1282,7 +1289,7 @@ export const useWriteLinkStateInitialize = /*#__PURE__*/ createUseWriteContract(
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateRenounceRole =
   /*#__PURE__*/ createUseWriteContract({
@@ -1294,7 +1301,7 @@ export const useWriteLinkStateRenounceRole =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateRevokeRole = /*#__PURE__*/ createUseWriteContract(
   { abi: linkStateAbi, address: linkStateAddress, functionName: 'revokeRole' },
@@ -1303,7 +1310,7 @@ export const useWriteLinkStateRevokeRole = /*#__PURE__*/ createUseWriteContract(
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"upgradeToAndCall"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWriteLinkStateUpgradeToAndCall =
   /*#__PURE__*/ createUseWriteContract({
@@ -1315,7 +1322,7 @@ export const useWriteLinkStateUpgradeToAndCall =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkState = /*#__PURE__*/ createUseSimulateContract({
   abi: linkStateAbi,
@@ -1325,7 +1332,7 @@ export const useSimulateLinkState = /*#__PURE__*/ createUseSimulateContract({
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"addCompany"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateAddCompany =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1337,7 +1344,7 @@ export const useSimulateLinkStateAddCompany =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"grantRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateGrantRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1349,7 +1356,7 @@ export const useSimulateLinkStateGrantRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateInitialize =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1361,7 +1368,7 @@ export const useSimulateLinkStateInitialize =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"renounceRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateRenounceRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1373,7 +1380,7 @@ export const useSimulateLinkStateRenounceRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"revokeRole"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateRevokeRole =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1385,7 +1392,7 @@ export const useSimulateLinkStateRevokeRole =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateAbi}__ and `functionName` set to `"upgradeToAndCall"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useSimulateLinkStateUpgradeToAndCall =
   /*#__PURE__*/ createUseSimulateContract({
@@ -1397,7 +1404,7 @@ export const useSimulateLinkStateUpgradeToAndCall =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateEvent = /*#__PURE__*/ createUseWatchContractEvent(
   { abi: linkStateAbi, address: linkStateAddress },
@@ -1406,7 +1413,7 @@ export const useWatchLinkStateEvent = /*#__PURE__*/ createUseWatchContractEvent(
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"CompanyAdded"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateCompanyAddedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1418,7 +1425,7 @@ export const useWatchLinkStateCompanyAddedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"Initialized"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateInitializedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1430,7 +1437,7 @@ export const useWatchLinkStateInitializedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"RoleAdminChanged"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateRoleAdminChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1442,7 +1449,7 @@ export const useWatchLinkStateRoleAdminChangedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"RoleGranted"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateRoleGrantedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1454,7 +1461,7 @@ export const useWatchLinkStateRoleGrantedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"RoleRevoked"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateRoleRevokedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1466,7 +1473,7 @@ export const useWatchLinkStateRoleRevokedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateAbi}__ and `eventName` set to `"Upgraded"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x18dedD852B675DA7a13C6bE6dB8d26Cda16569D3)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xBf4F68A5b20969626cE51b2ebe17b44075C4D7a8)
  */
 export const useWatchLinkStateUpgradedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -1756,7 +1763,7 @@ export const useWatchLinkStateCompanyRoleRevokedEvent =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfile = /*#__PURE__*/ createUseReadContract({
   abi: linkStateProfileAbi,
@@ -1766,7 +1773,7 @@ export const useReadLinkStateProfile = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"MIN_MESSAGE_PRICE"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileMinMessagePrice =
   /*#__PURE__*/ createUseReadContract({
@@ -1778,7 +1785,7 @@ export const useReadLinkStateProfileMinMessagePrice =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"PROTOCOL_FEE_BPS"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileProtocolFeeBps =
   /*#__PURE__*/ createUseReadContract({
@@ -1790,7 +1797,7 @@ export const useReadLinkStateProfileProtocolFeeBps =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"accumulatedFees"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileAccumulatedFees =
   /*#__PURE__*/ createUseReadContract({
@@ -1802,7 +1809,7 @@ export const useReadLinkStateProfileAccumulatedFees =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"balanceOf"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileBalanceOf =
   /*#__PURE__*/ createUseReadContract({
@@ -1814,7 +1821,7 @@ export const useReadLinkStateProfileBalanceOf =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"baseURI"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileBaseUri =
   /*#__PURE__*/ createUseReadContract({
@@ -1826,7 +1833,7 @@ export const useReadLinkStateProfileBaseUri =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"getApproved"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileGetApproved =
   /*#__PURE__*/ createUseReadContract({
@@ -1838,7 +1845,7 @@ export const useReadLinkStateProfileGetApproved =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"isApprovedForAll"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileIsApprovedForAll =
   /*#__PURE__*/ createUseReadContract({
@@ -1850,7 +1857,7 @@ export const useReadLinkStateProfileIsApprovedForAll =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"messageCount"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileMessageCount =
   /*#__PURE__*/ createUseReadContract({
@@ -1862,7 +1869,7 @@ export const useReadLinkStateProfileMessageCount =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"mintLimit"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileMintLimit =
   /*#__PURE__*/ createUseReadContract({
@@ -1874,7 +1881,7 @@ export const useReadLinkStateProfileMintLimit =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"name"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileName = /*#__PURE__*/ createUseReadContract({
   abi: linkStateProfileAbi,
@@ -1885,7 +1892,7 @@ export const useReadLinkStateProfileName = /*#__PURE__*/ createUseReadContract({
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"owner"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileOwner = /*#__PURE__*/ createUseReadContract(
   {
@@ -1898,7 +1905,7 @@ export const useReadLinkStateProfileOwner = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"ownerOf"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileOwnerOf =
   /*#__PURE__*/ createUseReadContract({
@@ -1910,7 +1917,7 @@ export const useReadLinkStateProfileOwnerOf =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"price"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfilePrice = /*#__PURE__*/ createUseReadContract(
   {
@@ -1923,7 +1930,7 @@ export const useReadLinkStateProfilePrice = /*#__PURE__*/ createUseReadContract(
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"profiles"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileProfiles =
   /*#__PURE__*/ createUseReadContract({
@@ -1935,7 +1942,7 @@ export const useReadLinkStateProfileProfiles =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"supportsInterface"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileSupportsInterface =
   /*#__PURE__*/ createUseReadContract({
@@ -1947,7 +1954,7 @@ export const useReadLinkStateProfileSupportsInterface =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"symbol"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileSymbol =
   /*#__PURE__*/ createUseReadContract({
@@ -1959,7 +1966,7 @@ export const useReadLinkStateProfileSymbol =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"tokenURI"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileTokenUri =
   /*#__PURE__*/ createUseReadContract({
@@ -1971,7 +1978,7 @@ export const useReadLinkStateProfileTokenUri =
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"totalSupply"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useReadLinkStateProfileTotalSupply =
   /*#__PURE__*/ createUseReadContract({
@@ -1983,7 +1990,7 @@ export const useReadLinkStateProfileTotalSupply =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfile = /*#__PURE__*/ createUseWriteContract({
   abi: linkStateProfileAbi,
@@ -1993,7 +2000,7 @@ export const useWriteLinkStateProfile = /*#__PURE__*/ createUseWriteContract({
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileApprove =
   /*#__PURE__*/ createUseWriteContract({
@@ -2005,7 +2012,7 @@ export const useWriteLinkStateProfileApprove =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileInitialize =
   /*#__PURE__*/ createUseWriteContract({
@@ -2017,7 +2024,7 @@ export const useWriteLinkStateProfileInitialize =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"mint"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileMint =
   /*#__PURE__*/ createUseWriteContract({
@@ -2029,7 +2036,7 @@ export const useWriteLinkStateProfileMint =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -2041,7 +2048,7 @@ export const useWriteLinkStateProfileRenounceOwnership =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"safeTransferFrom"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileSafeTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -2053,7 +2060,7 @@ export const useWriteLinkStateProfileSafeTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"sendMessage"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileSendMessage =
   /*#__PURE__*/ createUseWriteContract({
@@ -2065,7 +2072,7 @@ export const useWriteLinkStateProfileSendMessage =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"setApprovalForAll"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileSetApprovalForAll =
   /*#__PURE__*/ createUseWriteContract({
@@ -2075,9 +2082,21 @@ export const useWriteLinkStateProfileSetApprovalForAll =
   })
 
 /**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"setBaseURI"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
+ */
+export const useWriteLinkStateProfileSetBaseUri =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: linkStateProfileAbi,
+    address: linkStateProfileAddress,
+    functionName: 'setBaseURI',
+  })
+
+/**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
@@ -2089,7 +2108,7 @@ export const useWriteLinkStateProfileTransferFrom =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
@@ -2101,7 +2120,7 @@ export const useWriteLinkStateProfileTransferOwnership =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"updateMessagePrice"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileUpdateMessagePrice =
   /*#__PURE__*/ createUseWriteContract({
@@ -2113,7 +2132,7 @@ export const useWriteLinkStateProfileUpdateMessagePrice =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"updateProfile"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileUpdateProfile =
   /*#__PURE__*/ createUseWriteContract({
@@ -2125,7 +2144,7 @@ export const useWriteLinkStateProfileUpdateProfile =
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"withdrawFees"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWriteLinkStateProfileWithdrawFees =
   /*#__PURE__*/ createUseWriteContract({
@@ -2137,7 +2156,7 @@ export const useWriteLinkStateProfileWithdrawFees =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfile =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2148,7 +2167,7 @@ export const useSimulateLinkStateProfile =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"approve"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileApprove =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2160,7 +2179,7 @@ export const useSimulateLinkStateProfileApprove =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"initialize"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileInitialize =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2172,7 +2191,7 @@ export const useSimulateLinkStateProfileInitialize =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"mint"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileMint =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2184,7 +2203,7 @@ export const useSimulateLinkStateProfileMint =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"renounceOwnership"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2196,7 +2215,7 @@ export const useSimulateLinkStateProfileRenounceOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"safeTransferFrom"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileSafeTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2208,7 +2227,7 @@ export const useSimulateLinkStateProfileSafeTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"sendMessage"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileSendMessage =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2220,7 +2239,7 @@ export const useSimulateLinkStateProfileSendMessage =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"setApprovalForAll"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileSetApprovalForAll =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2230,9 +2249,21 @@ export const useSimulateLinkStateProfileSetApprovalForAll =
   })
 
 /**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"setBaseURI"`
+ *
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
+ */
+export const useSimulateLinkStateProfileSetBaseUri =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: linkStateProfileAbi,
+    address: linkStateProfileAddress,
+    functionName: 'setBaseURI',
+  })
+
+/**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"transferFrom"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2244,7 +2275,7 @@ export const useSimulateLinkStateProfileTransferFrom =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"transferOwnership"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2256,7 +2287,7 @@ export const useSimulateLinkStateProfileTransferOwnership =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"updateMessagePrice"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileUpdateMessagePrice =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2268,7 +2299,7 @@ export const useSimulateLinkStateProfileUpdateMessagePrice =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"updateProfile"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileUpdateProfile =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2280,7 +2311,7 @@ export const useSimulateLinkStateProfileUpdateProfile =
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link linkStateProfileAbi}__ and `functionName` set to `"withdrawFees"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useSimulateLinkStateProfileWithdrawFees =
   /*#__PURE__*/ createUseSimulateContract({
@@ -2292,7 +2323,7 @@ export const useSimulateLinkStateProfileWithdrawFees =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2303,7 +2334,7 @@ export const useWatchLinkStateProfileEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"Approval"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2315,7 +2346,7 @@ export const useWatchLinkStateProfileApprovalEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"ApprovalForAll"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileApprovalForAllEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2327,7 +2358,7 @@ export const useWatchLinkStateProfileApprovalForAllEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"FeesWithdrawn"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileFeesWithdrawnEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2339,7 +2370,7 @@ export const useWatchLinkStateProfileFeesWithdrawnEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"Initialized"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileInitializedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2351,7 +2382,7 @@ export const useWatchLinkStateProfileInitializedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"MessageSent"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileMessageSentEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2363,7 +2394,7 @@ export const useWatchLinkStateProfileMessageSentEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"OwnershipTransferred"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2375,7 +2406,7 @@ export const useWatchLinkStateProfileOwnershipTransferredEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"ProfileCreated"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileProfileCreatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
@@ -2387,7 +2418,7 @@ export const useWatchLinkStateProfileProfileCreatedEvent =
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link linkStateProfileAbi}__ and `eventName` set to `"Transfer"`
  *
- * [__View Contract on Base Basescan__](https://basescan.org/address/0x472C73F4C24893887d399d20cf1583c0D6E7CE20)
+ * [__View Contract on Base Basescan__](https://basescan.org/address/0xEbDc2F92D48D28503a9e3230363A7a29DAB424Cb)
  */
 export const useWatchLinkStateProfileTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({

@@ -156,4 +156,8 @@ contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
   function _baseURI() internal view virtual override returns (string memory) {
     return baseURI;
   }
+
+  function setBaseURI(string memory newBaseURI) external onlyOwner {
+    baseURI = newBaseURI;
+  }
 }
