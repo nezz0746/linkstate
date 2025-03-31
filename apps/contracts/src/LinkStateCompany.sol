@@ -5,6 +5,18 @@ import {SchemaResolver} from "@eas/resolver/SchemaResolver.sol";
 import {IEAS, Attestation} from "@eas/IEAS.sol";
 import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 
+//
+// ██╗     ██╗███╗   ██╗██╗  ██╗███████╗████████╗ █████╗ ████████╗███████╗
+// ██║     ██║████╗  ██║██║ ██╔╝██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+// ██║     ██║██╔██╗ ██║█████╔╝ ███████╗   ██║   ███████║   ██║   █████╗
+// ██║     ██║██║╚██╗██║██╔═██╗ ╚════██║   ██║   ██╔══██║   ██║   ██╔══╝
+// ███████╗██║██║ ╚████║██║  ██╗███████║   ██║   ██║  ██║   ██║   ███████╗
+// ╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+//
+/// @title LinkState Company
+/// @author nezzar.eth
+/// @notice A decentralized company contract for the LinkState protocol
+/// @dev This contract is to be used as a base contract for companies that want to attest of accounts claims (EAS)
 contract LinkStateCompany is SchemaResolver, AccessControlUpgradeable {
   bytes32 public constant HR_ROLE = keccak256("HR_ROLE");
   bytes32 public constant ALUMNI_ROLE = keccak256("ALUMNI_ROLE");

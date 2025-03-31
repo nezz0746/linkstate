@@ -12,7 +12,11 @@ export default defineConfig(async () => {
         project: foundryPath,
         artifacts: `${foundryPath}/out`,
         deployments,
-        include: ["CryptoResume.sol/*.json"],
+        include: [
+          "LinkState.sol/*.json",
+          "LinkStateCompany.sol/*.json",
+          "LinkStateProfile.sol/*.json",
+        ],
       }),
       react(),
     ],

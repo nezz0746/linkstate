@@ -7,6 +7,18 @@ import {UpgradeableBeacon} from "@openzeppelin/contracts/proxy/beacon/Upgradeabl
 import {BeaconProxy} from "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import {LinkStateCompany} from "./LinkStateCompany.sol";
 
+//
+// ██╗     ██╗███╗   ██╗██╗  ██╗███████╗████████╗ █████╗ ████████╗███████╗
+// ██║     ██║████╗  ██║██║ ██╔╝██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+// ██║     ██║██╔██╗ ██║█████╔╝ ███████╗   ██║   ███████║   ██║   █████╗
+// ██║     ██║██║╚██╗██║██╔═██╗ ╚════██║   ██║   ██╔══██║   ██║   ██╔══╝
+// ███████╗██║██║ ╚████║██║  ██╗███████║   ██║   ██║  ██║   ██║   ███████╗
+// ╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+//
+/// @title LinkState
+/// @author nezzar.eth
+/// @notice A decentralized company registry for the LinkState protocol
+/// @dev This contract is used to create company contracts that can attest of accounts claims (EAS)
 contract LinkState is AccessControlUpgradeable, UUPSUpgradeable {
   /// @notice The beacon that stores the implementation of LinkStateCompany
   UpgradeableBeacon public companyBeacon;

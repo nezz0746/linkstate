@@ -84,3 +84,39 @@ export type ExperienceClaim = {
   claimHash: string; // hash of content
   userSignature: string; // EIP-191 signature
 };
+
+export interface LinkedAccount {
+  id: string | null;
+  address?: string;
+  type: string;
+  verifiedAt: string;
+  firstVerifiedAt: string;
+  latestVerifiedAt: string;
+  chainType?: string;
+  chainId?: string;
+  walletClientType?: string;
+  connectorType?: string;
+  fid?: number;
+  ownerAddress?: string;
+  displayName?: string;
+  username?: string;
+  bio?: string;
+  pfp?: string;
+}
+
+export interface User {
+  id: string;
+  createdAt: string;
+  isGuest: boolean;
+  customMetadata: {
+    ens?: string;
+    ensVerifiedAt?: string;
+  };
+  linkedAccounts: LinkedAccount[];
+  wallet: LinkedAccount;
+  farcaster?: LinkedAccount;
+}
+
+export interface UsersResponse {
+  users: User[];
+}

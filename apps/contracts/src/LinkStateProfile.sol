@@ -4,6 +4,18 @@ pragma solidity ^0.8.13;
 import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
+//
+// ██╗     ██╗███╗   ██╗██╗  ██╗███████╗████████╗ █████╗ ████████╗███████╗
+// ██║     ██║████╗  ██║██║ ██╔╝██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝
+// ██║     ██║██╔██╗ ██║█████╔╝ ███████╗   ██║   ███████║   ██║   █████╗
+// ██║     ██║██║╚██╗██║██╔═██╗ ╚════██║   ██║   ██╔══██║   ██║   ██╔══╝
+// ███████╗██║██║ ╚████║██║  ██╗███████║   ██║   ██║  ██║   ██║   ███████╗
+// ╚══════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+//
+/// @title LinkState Profile
+/// @author nezzar.eth
+/// @notice A decentralized profile for the LinkState protocol
+/// @dev This contract is used to distribute profiles & index privately handled message simple payments
 contract LinkStateProfile is ERC721Upgradeable, OwnableUpgradeable {
   uint256 public price;
   uint256 public mintLimit;
