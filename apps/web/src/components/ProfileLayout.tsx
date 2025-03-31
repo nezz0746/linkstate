@@ -32,7 +32,7 @@ function ProfileLayout({ children }: { children: React.ReactNode }) {
         <div className="grid gap-2 lg:grid-cols-3 lg:gap-6">
           {" "}
           <div className="space-y-2 lg:col-span-2  bg-white">{children}</div>
-          <div className="space-y-6">
+          <div className="space-y-2 md:space-y-4">
             <WalletCard />
             <Card>
               <CardHeader>

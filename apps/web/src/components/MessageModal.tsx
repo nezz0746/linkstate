@@ -26,6 +26,7 @@ export function MessageModal() {
   useEffect(() => {
     if (isModalOpen === false) {
       setMessageSent(false);
+      setMessage("");
     }
   }, [isModalOpen]);
 
@@ -55,8 +56,6 @@ export function MessageModal() {
   const { price: usdPrice } = useTokenPrice(zeroAddress);
 
   if (!selectedUser) return null;
-
-  const isLoading = false;
 
   const sending = isSending || isWaitingForTransactionSuccess;
 

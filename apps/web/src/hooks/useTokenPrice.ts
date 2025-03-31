@@ -43,7 +43,7 @@ export const useTokenPrice = (tokenAddress?: string) => {
           return { data: [] };
         });
 
-      return parseFloat(res.data[0]?.prices[0]?.value);
+      return Number(parseFloat(res.data[0]?.prices[0]?.value).toFixed(4));
     },
   });
 
