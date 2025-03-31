@@ -40,7 +40,7 @@ const MintProfile = ({ children }: { children: React.ReactNode }) => {
   const writeLoading = mintPending || mintLoading;
   const writeDisabled = writeLoading || !address;
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div></div>;
 
   if (balance && balance > 0) return <div>{children}</div>;
 

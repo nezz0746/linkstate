@@ -51,6 +51,8 @@ type ExperienceContextType = {
   experiences: Experience[];
   addExperience: (experience: Omit<Experience, "id">) => void;
   removeExperience: (id: string) => void;
+  showForm: boolean;
+  setShowForm: (showForm: boolean) => void;
 };
 
 const ExperienceContext = createContext<ExperienceContextType | undefined>(
@@ -58,6 +60,7 @@ const ExperienceContext = createContext<ExperienceContextType | undefined>(
 );
 
 export function ExperienceProvider({ children }: { children: ReactNode }) {
+  const [showForm, setShowForm] = useState(false);
   const [experiences, setExperiences] = useState<Experience[]>(mockExperiences);
 
   const addExperience = (experience: Omit<Experience, "id">) => {
@@ -73,7 +76,13 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
 
   return (
     <ExperienceContext.Provider
-      value={{ experiences, addExperience, removeExperience }}
+      value={{
+        experiences,
+        addExperience,
+        removeExperience,
+        showForm,
+        setShowForm,
+      }}
     >
       {children}
     </ExperienceContext.Provider>

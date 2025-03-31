@@ -4,20 +4,23 @@ import { useState } from "react";
 import Image from "next/image";
 import { Badge } from "@cryptoresume/ui/components/ui/badge";
 import { Button } from "@cryptoresume/ui/components/ui/button";
-import { MessageSquare, PowerIcon } from "lucide-react";
+import { PowerIcon, SearchIcon } from "lucide-react";
 import { useAccount } from "wagmi";
 import { usePrivy, useUser } from "@privy-io/react-auth";
 import { truncateAddress } from "../helpers";
 import { ExperienceList } from "../components/ExperienceList";
 import LinkedProfiles from "../components/LinkedProfiles";
 import Divider from "../components/Divider";
+import { useRouter } from "next/navigation";
+import { useExperience } from "../contexts/ExperienceContext";
 
 export default function HomePage() {
   const { address } = useAccount();
   const { user } = useUser();
   const { logout } = usePrivy();
+  const router = useRouter();
 
-  const [showExperienceForm, setShowExperienceForm] = useState(false);
+  const { showForm, setShowForm } = useExperience();
 
   const displayName = user?.farcaster?.displayName || truncateAddress(address);
   const pfpUrl = user?.farcaster?.pfp;
@@ -59,6 +62,15 @@ export default function HomePage() {
               size="icon"
               variant="outline"
               onClick={() => {
+                router.push("/users");
+              }}
+            >
+              <SearchIcon className="h-4 w-4" />
+            </Button>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => {
                 logout();
               }}
             >
@@ -84,7 +96,7 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setShowExperienceForm(true)}
+              onClick={() => setShowForm(true)}
             >
               Add Experience
             </Button>

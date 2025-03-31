@@ -19,6 +19,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LoadingState from "./LoadingState";
 import ProfileLayout from "./ProfileLayout";
 import MintProfile from "./MintProfile";
+import { ExperienceProvider } from "../contexts/ExperienceContext";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const { ready, authenticated } = usePrivy();
@@ -143,9 +144,11 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
               transition={{ duration: 0.3 }}
               className="min-h-screen"
             >
-              <ProfileLayout>
-                <MintProfile>{children}</MintProfile>
-              </ProfileLayout>
+              <ExperienceProvider>
+                <ProfileLayout>
+                  <MintProfile>{children}</MintProfile>
+                </ProfileLayout>
+              </ExperienceProvider>
             </motion.div>
           )}
         </AnimatePresence>
